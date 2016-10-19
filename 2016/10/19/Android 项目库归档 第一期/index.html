@@ -1,0 +1,1355 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Android 类库 | Arison’blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Arison">
+    
+    <meta name="description" content="[TOC]
+目录
+TextView—文本控件
+EditView—编辑框控件
+ImageView—图片控件
+ImageButton—图片按钮控件
+Button—按钮控件
+Spinner—下拉控件
+progressBar—进度条控件
+CheckBox—单选与多选按钮
+SeekBar—
+RadioGrou">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/pacman.png" alt="Arison’blog" title="Arison’blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Arison’blog">Arison’blog</a></h1>
+				<h2 class="blog-motto">既然选择了远方，便只顾风雨兼程</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">文章</a></li>
+					
+						<li><a href="/business">互联网</a></li>
+					
+						<li><a href="/android">Android</a></li>
+					
+						<li><a href="/iOS">iOS</a></li>
+					
+						<li><a href="/javascript">前端</a></li>
+					
+						<li><a href="/spring">后端</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:ariono.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/10/19/Android 项目库归档 第一期/" title="Android 类库" itemprop="url">Android 类库</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://ariono.github.io" title="Arison">Arison</a>
+    </p>
+  <p class="article-time">
+     <span id="busuanzi_container_page_pv">
+     阅读<span id="busuanzi_value_page_pv"></span>次
+    </span>
+	&emsp;
+    <time datetime="2016-10-19T08:57:25.941Z" itemprop="datePublished">2016-10-19</time>
+    更新日期:<time datetime="2016-10-19T08:57:25.941Z" itemprop="dateModified">2016-10-19</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#目录"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TextView"><span class="toc-number">1.1.</span> <span class="toc-text">TextView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EditText"><span class="toc-number">1.2.</span> <span class="toc-text">EditText</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ImageView"><span class="toc-number">1.3.</span> <span class="toc-text">ImageView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Button"><span class="toc-number">1.4.</span> <span class="toc-text">Button</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spinner"><span class="toc-number">1.5.</span> <span class="toc-text">Spinner</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ProgressBar:heart:"><span class="toc-number">1.6.</span> <span class="toc-text">ProgressBar:heart:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CheckBox"><span class="toc-number">1.7.</span> <span class="toc-text">CheckBox</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#seekbar"><span class="toc-number">1.8.</span> <span class="toc-text">seekbar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ListView"><span class="toc-number">1.9.</span> <span class="toc-text">ListView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GridView"><span class="toc-number">1.10.</span> <span class="toc-text">GridView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ScrollView"><span class="toc-number">1.11.</span> <span class="toc-text">ScrollView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RecyclerView"><span class="toc-number">1.12.</span> <span class="toc-text">RecyclerView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewPager"><span class="toc-number">1.13.</span> <span class="toc-text">ViewPager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#布局Layout"><span class="toc-number">1.14.</span> <span class="toc-text">布局Layout</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#适配器"><span class="toc-number">1.15.</span> <span class="toc-text">适配器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#材料设计"><span class="toc-number">1.16.</span> <span class="toc-text">材料设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工具"><span class="toc-number">1.17.</span> <span class="toc-text">工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#刷新控件"><span class="toc-number">1.18.</span> <span class="toc-text">刷新控件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Toast"><span class="toc-number">1.19.</span> <span class="toc-text">Toast</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Blur"><span class="toc-number">1.20.</span> <span class="toc-text">Blur</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Segmented"><span class="toc-number">1.21.</span> <span class="toc-text">Segmented</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PopupWindow"><span class="toc-number">1.22.</span> <span class="toc-text">PopupWindow</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#wheelView"><span class="toc-number">1.23.</span> <span class="toc-text">wheelView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#折叠菜单"><span class="toc-number">1.24.</span> <span class="toc-text">折叠菜单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#菜单"><span class="toc-number">1.25.</span> <span class="toc-text">菜单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#侧滑菜单"><span class="toc-number">1.26.</span> <span class="toc-text">侧滑菜单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对话框"><span class="toc-number">1.27.</span> <span class="toc-text">对话框</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#搜索"><span class="toc-number">1.28.</span> <span class="toc-text">搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#表格"><span class="toc-number">1.29.</span> <span class="toc-text">表格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SeekBar"><span class="toc-number">1.30.</span> <span class="toc-text">SeekBar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#布局"><span class="toc-number">1.31.</span> <span class="toc-text">布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标签"><span class="toc-number">1.32.</span> <span class="toc-text">标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拖拽"><span class="toc-number">1.33.</span> <span class="toc-text">拖拽</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件"><span class="toc-number">1.34.</span> <span class="toc-text">文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#树"><span class="toc-number">1.35.</span> <span class="toc-text">树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WebView"><span class="toc-number">1.36.</span> <span class="toc-text">WebView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络请求"><span class="toc-number">1.37.</span> <span class="toc-text">网络请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#即时通信"><span class="toc-number">1.38.</span> <span class="toc-text">即时通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NIO-PRC框架"><span class="toc-number">1.39.</span> <span class="toc-text">NIO-PRC框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#按钮"><span class="toc-number">1.40.</span> <span class="toc-text">按钮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewPager-1"><span class="toc-number">1.41.</span> <span class="toc-text">ViewPager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Toobar"><span class="toc-number">1.42.</span> <span class="toc-text">Toobar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二维码"><span class="toc-number">1.43.</span> <span class="toc-text">二维码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载"><span class="toc-number">1.44.</span> <span class="toc-text">下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#适配"><span class="toc-number">1.45.</span> <span class="toc-text">适配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#架构"><span class="toc-number">1.46.</span> <span class="toc-text">架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#视频"><span class="toc-number">1.47.</span> <span class="toc-text">视频</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#异常"><span class="toc-number">1.48.</span> <span class="toc-text">异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选项卡"><span class="toc-number">1.49.</span> <span class="toc-text">选项卡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#蓝牙"><span class="toc-number">1.50.</span> <span class="toc-text">蓝牙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动画"><span class="toc-number">1.51.</span> <span class="toc-text">动画</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ORM"><span class="toc-number">1.52.</span> <span class="toc-text">ORM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#兼容库"><span class="toc-number">1.53.</span> <span class="toc-text">兼容库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#音乐系列"><span class="toc-number">1.54.</span> <span class="toc-text">音乐系列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义控件"><span class="toc-number">1.55.</span> <span class="toc-text">自定义控件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图表"><span class="toc-number">1.56.</span> <span class="toc-text">图表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#权限控制"><span class="toc-number">1.57.</span> <span class="toc-text">权限控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#仪表盘"><span class="toc-number">1.58.</span> <span class="toc-text">仪表盘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#换肤"><span class="toc-number">1.59.</span> <span class="toc-text">换肤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安全"><span class="toc-number">1.60.</span> <span class="toc-text">安全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#面试"><span class="toc-number">1.61.</span> <span class="toc-text">面试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#压力测试"><span class="toc-number">1.62.</span> <span class="toc-text">压力测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#日志"><span class="toc-number">1.63.</span> <span class="toc-text">日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#插件化"><span class="toc-number">1.64.</span> <span class="toc-text">插件化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二维码-1"><span class="toc-number">1.65.</span> <span class="toc-text">二维码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#支付"><span class="toc-number">2.</span> <span class="toc-text">支付</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#社交分享"><span class="toc-number">3.</span> <span class="toc-text">社交分享</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码分析"><span class="toc-number">4.</span> <span class="toc-text">源码分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#书签分享"><span class="toc-number">5.</span> <span class="toc-text">书签分享</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Shadow"><span class="toc-number">5.1.</span> <span class="toc-text">Shadow</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#StepView"><span class="toc-number">5.2.</span> <span class="toc-text">StepView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Calendar"><span class="toc-number">5.3.</span> <span class="toc-text">Calendar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Styel"><span class="toc-number">5.4.</span> <span class="toc-text">Styel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#视频-1"><span class="toc-number">5.5.</span> <span class="toc-text">视频</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#权限"><span class="toc-number">5.6.</span> <span class="toc-text">权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#角标(corner_label)"><span class="toc-number">5.7.</span> <span class="toc-text">角标(corner label)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目源码"><span class="toc-number">6.</span> <span class="toc-text">项目源码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#移动前端"><span class="toc-number">6.1.</span> <span class="toc-text">移动前端</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#联系方式"><span class="toc-number">7.</span> <span class="toc-text">联系方式</span></a></li></ol>
+		</div>
+		
+		<p>[TOC]</p>
+<h2 id="目录">目录</h2><ol>
+<li><strong>TextView</strong>—文本控件</li>
+<li><strong>EditView</strong>—编辑框控件</li>
+<li><strong>ImageView</strong>—图片控件</li>
+<li>ImageButton—图片按钮控件</li>
+<li><strong>Button</strong>—按钮控件</li>
+<li><strong>Spinner</strong>—下拉控件</li>
+<li><strong>progressBar</strong>—进度条控件</li>
+<li><strong>CheckBox</strong>—单选与多选按钮</li>
+<li>SeekBar—</li>
+<li>RadioGroup—多选按钮</li>
+<li>ListView—列表控件</li>
+<li>GridView—表格控件</li>
+<li>ScrollView—滚动控件</li>
+<li>WebView—网页控件</li>
+<li>RecycleView—新布局控件</li>
+<li>ExpandableListView—二级列表控件</li>
+<li>ViewPager—横向滑动控件</li>
+<li>Tab—选项卡控件</li>
+<li>Segmented—分段控件</li>
+<li>Tags—标签控件</li>
+<li>TreeView—树形控件</li>
+<li>Chart—图表控件</li>
+<li>PopupWindow</li>
+<li>Dialog—对话框</li>
+<li>Menu—菜单</li>
+<li>Drag—拖拽</li>
+<li>WheelView—选择器</li>
+<li>Toast—消息提示框</li>
+<li>Layout—布局</li>
+<li>Adapter—适配器</li>
+<li>Material—材料设计</li>
+<li>Refresh-Ui—刷新控件</li>
+<li>Animation—动画</li>
+<li>Http—网络请求专题</li>
+<li>ORM—数据库专题</li>
+<li>—注解框架</li>
+<li>—图片异步加载专题</li>
+<li>—上传与下载专题</li>
+<li>—<strong>日志</strong></li>
+<li>—<strong>插件化</strong></li>
+<li>—<strong>二维码</strong></li>
+<li>—<strong>支付</strong></li>
+<li>—<strong>社交分享</strong></li>
+<li>—<strong>地图</strong></li>
+<li>—<strong>源码分析</strong></li>
+<li>—<strong>书签分享</strong></li>
+<li>— <strong>Shadow</strong></li>
+<li>— <strong>StepView</strong></li>
+<li>— <strong>Calendar</strong></li>
+<li>— <strong>Style</strong></li>
+<li>— <strong>视频</strong></li>
+<li>— <strong>权限</strong></li>
+<li>— <strong>角标(corner label)</strong></li>
+<li>— <strong>项目源码</strong></li>
+<li>— <strong>移动前端</strong></li>
+</ol>
+<h3 id="TextView">TextView</h3><pre><code>文本框
+</code></pre><ul>
+<li><a href="https://github.com/borjabravo10/ReadMoreTextView" target="_blank" rel="external">ReadMoreTextView(点击展示更多效果)</a></li>
+<li><a href="https://github.com/babylikebird/htmlImage" target="_blank" rel="external">HtmlImage(html图片加载)</a></li>
+<li><a href="https://github.com/grantland/android-autofittextview" target="_blank" rel="external">android-autofittextview[自适应改变大小]</a></li>
+<li><a href="https://github.com/SufficientlySecure/html-textview" target="_blank" rel="external">html-textview【加载html】</a></li>
+<li><a href="https://github.com/quiqueqs/BabushkaText" target="_blank" rel="external">BabushkaText【样式美化】</a></li>
+<li><a href="https://github.com/robinhood/ticker" target="_blank" rel="external">ticker</a>(An Android text view with scrolling text change animation ) </li>
+<li><a href="https://github.com/Manabu-GT/ExpandableTextView" target="_blank" rel="external">ExpandableTextView</a>(可伸展的文本控件)</li>
+<li><a href="https://github.com/klinker24/Android-TextView-LinkBuilder" target="_blank" rel="external">Android-TextView-LinkBuilder</a>(超链接设置)  </li>
+<li><a href="https://github.com/bluejamesbond/TextJustify-Android" target="_blank" rel="external">TextJustify-Android</a>(样式排版对齐)</li>
+<li><a href="https://github.com/chiuki/advanced-textview" target="_blank" rel="external">advanced-textview</a></li>
+<li><a href="https://github.com/HeZaiJin/SlantedTextView" target="_blank" rel="external">SlantedTextView</a>(Android slanted倾斜 TextView )</li>
+<li><a href="https://github.com/zzhoujay/RichText" target="_blank" rel="external">RichText</a>(html和md格式解析,支持图片超链接)</li>
+<li><a href="https://github.com/hongyangAndroid/MixtureTextView" target="_blank" rel="external">MixtureTextView</a>(图文混排)</li>
+</ul>
+<h3 id="EditText">EditText</h3><pre><code>编辑框
+</code></pre><ul>
+<li><a href="https://github.com/rengwuxian/MaterialEditText" target="_blank" rel="external">MaterialEditText</a>(EditText in Material Design)</li>
+<li><a href="https://github.com/vekexasia/android-edittext-validator" target="_blank" rel="external">android-edittext-validator</a>(表单验证)</li>
+<li><a href="https://github.com/MrFuFuFu/ClearEditText" target="_blank" rel="external">ClearEditText</a>(左边小图标；输入文字清除按钮；样式好看)</li>
+<li><a href="https://github.com/vekexasia/android-edittext-validator" target="_blank" rel="external">android-edittext-validator (1000+)</a>(Android form edit text is an extension of EditText that brings data validation facilities to the edittext.)(支持正则表达式验证表单字段)</li>
+</ul>
+<p><img src="https://camo.githubusercontent.com/e97fe00a87be7210e455c5af585faa24b939bfd5/687474703a2f2f6c68362e67677068742e636f6d2f6d5963656f7958796d3255342d3674524a5773756459342d362d56315479466c7144667a4c39503252345a303539575a514c545a33433947716377722d6852724451" alt=""><br><img src="https://camo.githubusercontent.com/38682fe564f400238006daafc87513df26624cdf/687474703a2f2f6c68362e67677068742e636f6d2f79547a7349362d395654744a5648333331454136674b63344752424d765f4458786a417150506c5639596a35672d56477a6357744a3737545f6d324a63626d624f6f51" alt=""></p>
+<ul>
+<li><a href="https://github.com/maksim88/PasswordEditText" target="_blank" rel="external">PasswordEditText</a></li>
+</ul>
+<p><img src="https://camo.githubusercontent.com/b28b78a4d37d925bb296d629a4d06231be90f27a/68747470733a2f2f7261772e6769746875622e636f6d2f6d616b73696d38382f50617373776f726445646974546578742f6d61737465722f6d656469612f73637265656e73686f742e706e67" alt=""></p>
+<h3 id="ImageView">ImageView</h3><ul>
+<li><a href="https://github.com/hdodenhof/CircleImageView" target="_blank" rel="external">CircleImageView[圆形自定图片]</a></li>
+<li><a href="https://github.com/koral--/android-gif-drawable" target="_blank" rel="external">加载gif图片</a></li>
+<li><a href="https://github.com/lovetuzitong/MultiImageSelector" target="_blank" rel="external">图片选择器</a></li>
+<li><a href="https://github.com/pengjianbo/GalleryFinal" target="_blank" rel="external">图片自定义多选（本地图片选择库）</a></li>
+<li><a href="https://github.com/donglua/PhotoPicker" target="_blank" rel="external">类似微信的图片选择、预览组件</a></li>
+<li><a href="https://github.com/donglua/PhotoPicker" target="_blank" rel="external">PhotoPicker</a></li>
+<li><a href="https://github.com/jeasonlzy0216/ImagePicker" target="_blank" rel="external">图片选择器  仿微信</a></li>
+<li><a href="https://github.com/nostra13/Android-Universal-Image-Loader" target="_blank" rel="external">Android-Universal-Image-Loader</a></li>
+<li><a href="https://github.com/jdamcd/android-crop" target="_blank" rel="external">android-crop</a></li>
+<li><a href="https://github.com/DavidWangTM/DWCorePhoto_Android" target="_blank" rel="external">多张图片展示，缩放（可以参考布局）</a></li>
+<li><a href="https://github.com/anyunzhong/AndroidTimelineView" target="_blank" rel="external">仿微信朋友圈</a></li>
+<li><a href="https://github.com/nicewarm/WeChatImageClipping" target="_blank" rel="external">仿微信图片裁剪</a></li>
+<li><a href="https://github.com/siwangqishiq/ImageEditor-Android" target="_blank" rel="external">图片编辑处理</a></li>
+<li><a href="http://p.codekk.com/detail/Android/w4lle/NineGridView" target="_blank" rel="external">NineGridView-九宫格展示</a></li>
+<li><a href="https://github.com/zfdang/android-multiple-images-selector" target="_blank" rel="external">android-multiple-images-selector(本地图片加载器)</a></li>
+<li><a href="https://github.com/siyamed/android-shape-imageview" target="_blank" rel="external">android-shape-imageview(微信聊天图片边角形状)</a></li>
+<li><a href="https://github.com/kongnanlive/android-combination-avatar" target="_blank" rel="external">android-combination-avatar</a>(模仿QQ讨论组头像)   </li>
+</ul>
+<p><img src="https://github.com/kongnanlive/android-combination-avatar/raw/master/screenshots/screenshot1.jpg" alt=""></p>
+<h3 id="Button">Button</h3><ul>
+<li><a href="https://github.com/futuresimple/android-floating-action-button" target="_blank" rel="external">android-floating-action-button</a>(Floating Action Button for Android based on Material Design specification)</li>
+</ul>
+<p><img src="https://github.com/futuresimple/android-floating-action-button/raw/master/screenshots/labels.png" alt=""></p>
+<ul>
+<li><a href="https://github.com/makovkastar/FloatingActionButton" target="_blank" rel="external">FloatingActionButton</a></li>
+</ul>
+<p><img src="https://github.com/makovkastar/FloatingActionButton/raw/master/art/demo.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/zcweng/ToggleButton" target="_blank" rel="external">ToggleButton</a></li>
+</ul>
+<p><img src="https://github.com/zcweng/ToggleButton/raw/master/ToggleButtonSample/21879.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/ChadCSong/ShineButton" target="_blank" rel="external">ShineButton</a></li>
+</ul>
+<p><img src="https://github.com/ChadCSong/ShineButton/raw/master/demo_shine_others.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/Clans/FloatingActionButton" target="_blank" rel="external">FloatingActionButton</a></li>
+</ul>
+<p><img src="https://github.com/Clans/FloatingActionButton/raw/master/screenshots/menu_default_opened.png" alt=""><img src="https://github.com/Clans/FloatingActionButton/raw/master/screenshots/menu_down_opened.png" alt=""><img src="https://github.com/Clans/FloatingActionButton/raw/master/screenshots/main_screen.png" alt=""></p>
+<ul>
+<li><a href="https://github.com/kyleduo/SwitchButton" target="_blank" rel="external">SwitchButton</a></li>
+</ul>
+<p><img src="https://github.com/kyleduo/SwitchButton/raw/master/preview/demo_140.jpg" alt=""></p>
+<ul>
+<li><a href="https://github.com/wangjiegulu/RapidFloatingActionButton" target="_blank" rel="external">RapidFloatingActionButton</a></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/wangjiegulu/RapidFloatingActionButton/master/screenshot/rfab_label_list.gif" alt=""><br><img src="https://raw.githubusercontent.com/wangjiegulu/RapidFloatingActionButton/master/screenshot/rfabg.gif" alt=""><br><img src="https://raw.githubusercontent.com/wangjiegulu/RapidFloatingActionButton/master/screenshot/rfab_card_view.gif" alt=""></p>
+<h3 id="Spinner">Spinner</h3><ul>
+<li><a href="https://github.com/arcadefire/nice-spinner" target="_blank" rel="external">nice-spinner</a></li>
+</ul>
+<p><img src="" alt=""></p>
+<ul>
+<li><a href="https://github.com/ganfra/MaterialSpinner" target="_blank" rel="external">MaterialSpinner</a></li>
+</ul>
+<p><img src="https://github.com/ganfra/MaterialSpinner/raw/master/screenshots/screenshot.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/Lesilva/BetterSpinner" target="_blank" rel="external">BetterSpinner</a></li>
+</ul>
+<p><img src="https://github.com/Lesilva/BetterSpinner/raw/master/screenshot/screenshot.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/jaredrummler/Material-Spinner" target="_blank" rel="external">Material-Spinner</a></li>
+</ul>
+<p><img src="https://github.com/jaredrummler/Material-Spinner/raw/master/demo.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/miteshpithadiya/SearchableSpinner" target="_blank" rel="external">SearchableSpinner</a></li>
+</ul>
+<p><img src="https://github.com/miteshpithadiya/SearchableSpinner/raw/master/searchablespinnerlibrary/src/main/res/nobleltevzwLMY47XMeditab02192016201518.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/lovetuzitong/MultiImageSelector" target="_blank" rel="external">MultiImageSelector</a></li>
+</ul>
+<p><img src="https://github.com/lovetuzitong/MultiImageSelector/raw/master/art/select_2.png" alt=""></p>
+<ul>
+<li><a href="https://github.com/iwgang/CountdownView" target="_blank" rel="external">CountdownView</a></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/iwgang/CountdownView/master/screenshot/g_config2.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/Flipboard/bottomsheet" target="_blank" rel="external">bottomsheet</a></li>
+</ul>
+<p><img src="https://camo.githubusercontent.com/d81602913dd3f1e40268cbe4dfffa9d9697f58a3/687474703a2f2f692e696d6775722e636f6d2f3265335a686f552e676966" alt=""></p>
+<ul>
+<li><a href="https://github.com/amlcurran/ShowcaseView" target="_blank" rel="external">ShowcaseView</a></li>
+</ul>
+<p><img src="https://github.com/amlcurran/ShowcaseView/raw/master/example2@2x.png" alt=""></p>
+<p><img src="https://github.com/amlcurran/ShowcaseView/raw/master/example2@2x.png" alt=""></p>
+<p><img src="https://github.com/amlcurran/ShowcaseView/raw/master/material.png" alt=""></p>
+<ul>
+<li><a href="https://github.com/haibuzou/ExpandTable" target="_blank" rel="external">ExpandTable</a></li>
+</ul>
+<p><img src="https://github.com/haibuzou/ExpandTable/raw/master/art/ScreenGif.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/gqdy365/WeiboPopupWindow" target="_blank" rel="external">WeiboPopupWindow</a></li>
+</ul>
+<p><img src="https://github.com/gqdy365/WeiboPopupWindow/raw/master/jdfw.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/ManuelPeinado/MultiChoiceAdapter" target="_blank" rel="external">MultiChoiceAdapter</a></li>
+</ul>
+<p><img src="https://camo.githubusercontent.com/26a140fd60d3823a5cf2264755e2dd5374627a9d/68747470733a2f2f7261772e6769746875622e636f6d2f4d616e75656c5065696e61646f2f4d756c746943686f696365416461707465722f6d61737465722f6172742f726561646d655f7069632e706e67" alt=""></p>
+<ul>
+<li><a href="https://github.com/andyxialm/SmoothCheckBox" target="_blank" rel="external">SmoothCheckBox</a></li>
+</ul>
+<p><img src="https://github.com/andyxialm/SmoothCheckBox/raw/master/art/smoothcb.gif?raw=true" alt=""></p>
+<ul>
+<li><a href="https://github.com/hanks-zyh/AnimateCheckBox" target="_blank" rel="external">AnimateCheckBox</a></li>
+</ul>
+<p><img src="https://github.com/hanks-zyh/AnimateCheckBox/raw/master/screen.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/willnewii/ListView-DragAndDrop" target="_blank" rel="external">ListView-DragAndDrop</a></li>
+</ul>
+<p><img src="https://github.com/willnewii/ListView-DragAndDrop/raw/master/Screenshot.jpg?raw=true" alt=""></p>
+<ul>
+<li><a href="https://github.com/AigeStudio/MultiThreadDownloader" target="_blank" rel="external">MultiThreadDownloader</a></li>
+</ul>
+<p><img src="https://github.com/AigeStudio/MultiThreadDownloader/raw/master/preview2.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/javiersantos/AppUpdater" target="_blank" rel="external">AppUpdater</a></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/javiersantos/AppUpdater/master/Screenshots/banner.png" alt=""></p>
+<ul>
+<li><a href="http://blog.csdn.net/xyz_lmn/article/details/6921097" target="_blank" rel="external">Android UI开发第十六篇——分享一个popuwindow实例</a></li>
+</ul>
+<p><img src="http://hi.csdn.net/attachment/201110/31/0_1320038600Es8h.gif" alt=""></p>
+<h3 id="ProgressBar:heart:">ProgressBar:heart:</h3><ul>
+<li><a href="https://github.com/castorflex/SmoothProgressBar" target="_blank" rel="external">SmoothProgressBar</a></li>
+</ul>
+<p><img src="https://github.com/castorflex/SmoothProgressBar/raw/master/screenshots/SPB_sample.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/daimajia/NumberProgressBar" target="_blank" rel="external">NumberProgressBar</a></li>
+</ul>
+<p><img src="https://camo.githubusercontent.com/0c92568af7ec4e04e2e1503acdd2ca99854ab0b5/687474703a2f2f7777332e73696e61696d672e636e2f6d773639302f36313064633033346a77316566797264386e376937673230637a30326d7135662e676966" alt=""></p>
+<ul>
+<li><a href="https://github.com/mrwonderman/android-square-progressbar" target="_blank" rel="external">android-square-progressbar</a></li>
+</ul>
+<p><img src="https://camo.githubusercontent.com/3ddc0a0d9ed3c39f806f1459d49e46e87be81e29/68747470733a2f2f6d61766868772d626e313330362e66696c65732e316472762e636f6d2f793270386e736e3035354b30583172663935725743634375686f6b583451453542313953506f686c74513735386174513948635632694b334b5f773830325765673668794d70624c507770574745476f62385f7a5f62725651536e4c572d50664e43773274554e6132672d5930786b344279344c6a4a316e564f7445394a7a6a5737535f6251716c4833796668657a793847646a744d4b717a6e5832486a74463834363163456536394b532d6f512f636f7665725f6769746875622e706e67" alt=""></p>
+<ul>
+<li><a href="https://github.com/lsjwzh/MaterialLoadingProgressBar" target="_blank" rel="external">MaterialLoadingProgressBar</a></li>
+</ul>
+<p><img src="https://github.com/lsjwzh/MaterialLoadingProgressBar/raw/master/screen.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/aliab/circular-music-progressbar" target="_blank" rel="external">circular-music-progressbar</a></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/aliab/circular-music-progressbar/master/art/splash.jpg" alt=""></p>
+<ul>
+<li><a href="https://github.com/dmytrodanylyk/circular-progress-button" target="_blank" rel="external">circular-progress-button</a></li>
+</ul>
+<p><img src="https://github.com/dmytrodanylyk/circular-progress-button/raw/master/screenshots/intro.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/dmytrodanylyk/android-process-button" target="_blank" rel="external">android-process-button</a></li>
+</ul>
+<p><img src="https://github.com/dmytrodanylyk/android-process-button/raw/master/screenshots/sample1_small2.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/pnikosis/materialish-progress" target="_blank" rel="external">materialish-progress</a>(A material style progress wheel compatible with 2.3)</li>
+</ul>
+<p><img src="https://github.com/pnikosis/materialish-progress/raw/master/spinningwheel.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/lzyzsd/CircleProgress" target="_blank" rel="external">CircleProgress</a></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/lzyzsd/CircleProgress/master/demos/circle_progress.gif" alt=""><br><img src="https://camo.githubusercontent.com/547e0a962f69fcbe1c78013482fffaa4c43db623/687474703a2f2f692e737461636b2e696d6775722e636f6d2f735a5035742e706e67" alt=""></p>
+<ul>
+<li><a href="https://github.com/akexorcist/Android-RoundCornerProgressBar" target="_blank" rel="external">Android-RoundCornerProgressBar</a></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/akexorcist/Android-RoundCornerProgressBar/master/image/screenshot_02.png" alt=""></p>
+<ul>
+<li><a href="https://github.com/jpardogo/GoogleProgressBar" target="_blank" rel="external">GoogleProgressBar</a></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/jpardogo/GoogleProgressBar/dev/art/GoogleDices.gif" alt=""><br><img src="https://raw.githubusercontent.com/MewX/google-progress-bar/gpb-chrome/art/ChromeFloatingCircles.gif" alt=""><br><img src="https://raw.githubusercontent.com/jpardogo/GoogleProgressBar/master/art/GoogleProgressBar.gif" alt=""><br><img src="https://raw.githubusercontent.com/jpardogo/GoogleProgressBar/master/art/NexusRotationCross.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/panwrona/DownloadProgressBar" target="_blank" rel="external">DownloadProgressBar</a></li>
+</ul>
+<p><img src="https://github.com/panwrona/DownloadProgressBar/raw/master/success.gif" alt=""><br><img src="https://github.com/panwrona/DownloadProgressBar/raw/master/error.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/iammert/MusicPlayerView" target="_blank" rel="external">MusicPlayerView</a></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/iammert/MusicPlayerView/master/art/art2.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/gotev/android-upload-service" target="_blank" rel="external">android-upload-service</a></li>
+</ul>
+<p><img src="https://camo.githubusercontent.com/e14db5df226715b7a9b1af7027d76c886aa44e9d/687474703a2f2f676f7465762e6769746875622e696f2f616e64726f69642d75706c6f61642d736572766963652f75706c6f61642e676966" alt=""></p>
+<ul>
+<li><a href="https://github.com/JorgeCastilloPrz/FABProgressCircle" target="_blank" rel="external">FABProgressCircle</a></li>
+</ul>
+<p><img src="https://github.com/JorgeCastilloPrz/FABProgressCircle/raw/master/art/fabprogresscircle.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/Cloudist/ACProgressLite" target="_blank" rel="external">ACProgressLite</a></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Cloudist/ACProgressLite/master/intros/screenshot_1.png" alt=""></p>
+<ul>
+<li><a href="https://github.com/saiwu-bigkoo/Android-SVProgressHUD" target="_blank" rel="external">Android-SVProgressHUD</a></li>
+</ul>
+<p><img src="https://github.com/saiwu-bigkoo/Android-SVProgressHUD/raw/master/preview/svprogresshuddemo.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/DreaminginCodeZH/MaterialProgressBar" target="_blank" rel="external">MaterialProgressBar</a></li>
+</ul>
+<p><img src="https://github.com/DreaminginCodeZH/MaterialProgressBar/raw/master/screenshot/android_4_4_4.png" alt=""></p>
+<ul>
+<li><a href="https://github.com/cctanfujun/ProgressRoundButton" target="_blank" rel="external">ProgressRoundButton</a></li>
+</ul>
+<p><img src="https://camo.githubusercontent.com/656488830a0b0a78015772ddf21f853ee08d3045/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f303036306c6d375467773165777a686e7a36313433673330363030616f6538322e676966" alt=""></p>
+<ul>
+<li><a href="https://github.com/lopspower/CircularProgressBar" target="_blank" rel="external">CircularProgressBar</a></li>
+</ul>
+<p><img src="https://github.com/lopspower/CircularProgressBar/raw/master/preview/preview.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/hongyangAndroid/Android-ProgressBarWidthNumber" target="_blank" rel="external">Android-ProgressBarWidthNumber</a></li>
+</ul>
+<p><img src="https://github.com/hongyangAndroid/Android-ProgressBarWidthNumber/raw/master/sample_zhy_progressbar/Screenshot_.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/stormzhang/CustomLoading" target="_blank" rel="external">CustomLoading:heart:</a></li>
+</ul>
+<p><img src="https://camo.githubusercontent.com/ee39acccb6e9fa027235180e3a85a683ba2cca58/68747470733a2f2f7261772e6769746875622e636f6d2f73746f726d7a68616e672f437573746f6d4c6f6164696e672f6d61737465722f736e61702e6a7067" alt=""></p>
+<ul>
+<li><a href="https://github.com/ldoublem/LoadingView" target="_blank" rel="external">LoadingView</a></li>
+</ul>
+<p><img src="https://github.com/ldoublem/LoadingView/raw/master/screen/%E6%95%88%E6%9E%9C.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/hongyangAndroid/LoadingAndRetryManager" target="_blank" rel="external">LoadingAndRetryManager</a></li>
+</ul>
+<p><img src="https://github.com/hongyangAndroid/LoadingAndRetryManager/raw/master/anyview.gif" alt=""><br><img src="https://github.com/hongyangAndroid/LoadingAndRetryManager/raw/master/loadingandtry.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/cctanfujun/ProgressRoundButton" target="_blank" rel="external">ProgressRoundButton</a>(2016-09-29)</li>
+</ul>
+<p><img src="https://camo.githubusercontent.com/656488830a0b0a78015772ddf21f853ee08d3045/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f303036306c6d375467773165777a686e7a36313433673330363030616f6538322e676966" alt=""></p>
+<h3 id="CheckBox">CheckBox</h3><ul>
+<li><a href="https://github.com/andyxialm/SmoothCheckBox" target="_blank" rel="external">SmoothCheckBox</a></li>
+</ul>
+<p><img src="https://github.com/andyxialm/SmoothCheckBox/raw/master/art/smoothcb.gif?raw=true" alt=""></p>
+<ul>
+<li><a href="https://github.com/hanks-zyh/AnimateCheckBox" target="_blank" rel="external">AnimateCheckBox</a></li>
+</ul>
+<p><img src="https://github.com/hanks-zyh/AnimateCheckBox/raw/master/screen.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/roughike/SwipeSelector" target="_blank" rel="external">SwipeSelector</a></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/roughike/SwipeSelector/master/demo_two.gif" alt=""></p>
+<h3 id="seekbar">seekbar</h3><ul>
+<li><a href="https://github.com/techery/progresshint" target="_blank" rel="external">progresshint</a></li>
+</ul>
+<p><img src="https://github.com/techery/progresshint/raw/master/assets/progresshint-demo.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/yahoo/android-range-seek-bar" target="_blank" rel="external">android-range-seek-bar</a></li>
+</ul>
+<p><img src="https://github.com/yahoo/android-range-seek-bar/raw/master/demo_screenshot.png" alt=""></p>
+<ul>
+<li><a href="https://github.com/dolphinwang/RangeSeekbar" target="_blank" rel="external">RangeSeekbar</a></li>
+</ul>
+<p><img src="https://github.com/dolphinwang/RangeSeekbar/raw/master/Screenshot.png" alt=""></p>
+<ul>
+<li><a href="https://github.com/soyoungboy/NumberSeekBar" target="_blank" rel="external">NumberSeekBar</a></li>
+</ul>
+<p><img src="https://camo.githubusercontent.com/e717e2597779d1ddc980ace6f3943f62483d8a8c/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f2d376e62565058785568596b2f56472d724f3634704d57492f414141414141414148734d2f614d52676c7432567a726b2f773633392d683438302f616e696d6174696f6e2e676966" alt=""></p>
+<ul>
+<li><a href="https://github.com/moondroid/SeekBarHint" target="_blank" rel="external"></a></li>
+</ul>
+<p><img src="https://github.com/moondroid/SeekBarHint/raw/master/art/seekbarhint_demo.gif" alt=""></p>
+<h3 id="ListView">ListView</h3><ul>
+<li><a href="http://p.codekk.com/detail/Android/saiwu-bigkoo/Android-QuickSideBar" target="_blank" rel="external">侧边栏快速索引</a></li>
+<li><a href="https://github.com/ManuelPeinado/MultiChoiceAdapter" target="_blank" rel="external">MultiChoiceAdapter</a></li>
+<li><a href="https://github.com/nhaarman/ListViewAnimations" target="_blank" rel="external">ListViewAnimations</a></li>
+<li><a href="https://github.com/tjerkw/Android-SlideExpandableListView" target="_blank" rel="external">Android-SlideExpandableListView</a></li>
+<li><a href="https://github.com/47deg/android-swipelistview-sample" target="_blank" rel="external">android-swipelistview-sample</a></li>
+</ul>
+<h3 id="GridView">GridView</h3><ul>
+<li><a href="https://github.com/etsy/AndroidStaggeredGrid" target="_blank" rel="external">AndroidStaggeredGrid</a></li>
+</ul>
+<h3 id="ScrollView">ScrollView</h3><ul>
+<li><a href="https://github.com/ksoichiro/Android-ObservableScrollView" target="_blank" rel="external">Android-ObservableScrollView[强大的滚动库]</a></li>
+</ul>
+<h3 id="RecyclerView">RecyclerView</h3><ul>
+<li><p><a href="https://github.com/CameloeAnthony/Learning-RecyclerView" target="_blank" rel="external">Learning-RecyclerView</a>(a collection repository for repositories about recyclerView（RecyclerView大集合）)</p>
+</li>
+<li><p><a href="https://github.com/wasabeef/recyclerview-animators" target="_blank" rel="external">recyclerview-animators</a></p>
+</li>
+</ul>
+<p><img src="https://github.com/wasabeef/recyclerview-animators/raw/master/art/demo2.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/h6ah4i/android-advancedrecyclerview" target="_blank" rel="external">android-advancedrecyclerview</a></li>
+</ul>
+<p><img src="https://github.com/h6ah4i/android-advancedrecyclerview/raw/master/images/other_example_ios_mail.png" alt=""></p>
+<ul>
+<li><a href="https://github.com/lucasr/twoway-view" target="_blank" rel="external">twoway-view</a></li>
+</ul>
+<p><img src="https://github.com/lucasr/twoway-view/raw/master/images/sample.png" alt=""></p>
+<ul>
+<li><a href="https://github.com/sfsheng0322/StickyHeaderListView" target="_blank" rel="external">StickyHeaderListView</a></li>
+</ul>
+<p><img src="https://github.com/sfsheng0322/StickyHeaderListView/raw/master/screenshots/stickyheader.gif" alt=""></p>
+<ul>
+<li><a href="http://p.codekk.com/detail/Android/songhanghang/Smart-HeaderFooter-RecyclerView" target="_blank" rel="external">Smart-HeaderFooter-RecyclerView</a></li>
+</ul>
+<p><img src="https://github.com/songhanghang/Smart-HeaderFooter-RecyclerView/raw/master/screenshot/screen.png" alt=""></p>
+<ul>
+<li><a href="https://github.com/cundong/HeaderAndFooterRecyclerView" target="_blank" rel="external"></a></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/cundong/HeaderAndFooterRecyclerView/master/art/art5.png" alt=""><img src="https://raw.githubusercontent.com/cundong/HeaderAndFooterRecyclerView/master/art/art4.png" alt=""><img src="https://raw.githubusercontent.com/cundong/HeaderAndFooterRecyclerView/master/art/art2.png" alt=""></p>
+<ul>
+<li><a href="https://github.com/yanzhenjie/SwipeRecyclerView" target="_blank" rel="external">SwipeRecyclerView</a>(recycler+侧滑删除+排序+下拉刷新+)</li>
+</ul>
+<p><img src="https://github.com/yanzhenjie/SwipeRecyclerView/raw/master/image/4.gif" alt=""></p>
+<h3 id="ViewPager">ViewPager</h3><ul>
+<li><a href="https://github.com/rubensousa/RecyclerViewSnap" target="_blank" rel="external">RecyclerViewSnap</a>(2016-09-30)</li>
+</ul>
+<p><img src="https://github.com/rubensousa/RecyclerViewSnap/raw/master/screens/snap_googleplay.gif" alt=""></p>
+<h3 id="布局Layout">布局Layout</h3><ul>
+<li><a href="https://github.com/daimajia/AndroidSwipeLayout" target="_blank" rel="external">AndroidSwipeLayout</a></li>
+<li><a href="https://github.com/traex/ExpandableLayout" target="_blank" rel="external">ExpandableLayout</a></li>
+<li></li>
+</ul>
+<h3 id="适配器">适配器</h3><ul>
+<li><a href="https://github.com/davideas/FlexibleAdapter" target="_blank" rel="external">FlexibleAdapter</a></li>
+<li><a href="https://github.com/hongyangAndroid/baseAdapter" target="_blank" rel="external">baseAdapter</a></li>
+</ul>
+<h3 id="材料设计">材料设计</h3><pre><code>材料设计风格作为一种趋势，我们有必要了解<span class="comment">;</span>
+</code></pre><ul>
+<li><a href="https://github.com/lightSky/Awesome-MaterialDesign" target="_blank" rel="external">Awesome-MaterialDesign(3000+)</a>(学习材料设计风格一站式导航资源)</li>
+</ul>
+<h3 id="工具">工具</h3><pre><code>工具节省我们时间，工具帮助我们思考；
+</code></pre><ul>
+<li><a href="https://github.com/venshine/gradle-bintray-upload" target="_blank" rel="external">gradle-bintray-upload</a>(Android Studio上传Library库到JCenter，并同步到Maven Central)</li>
+<li><a href="https://github.com/venshine/AndroidCommon" target="_blank" rel="external">AndroidCommon</a>(Android工具类封装)</li>
+<li><a href="http://p.codekk.com/detail/Android/wenmingvs/NotifyUtil" target="_blank" rel="external">NotifyUtil</a>(本地通知工具类)</li>
+<li><a href="http://p.codekk.com/detail/Android/l123456789jy/Lazy" target="_blank" rel="external">Lazy</a>(Android常用工具类)</li>
+</ul>
+<h3 id="刷新控件">刷新控件</h3><pre><code>刷新控件是移动开发领域重要控件之一
+</code></pre><ul>
+<li><a href="https://github.com/android-cjj/BeautifulRefreshLayout" target="_blank" rel="external">BeautifulRefreshLayout(900+):heart:</a>(重点推荐，刷新控件总结大全)</li>
+<li><a href="https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh" target="_blank" rel="external">android-Ultra-Pull-To-Refresh(6000+):heart:</a>(名库-非常强大的刷新控件)</li>
+<li><a href="https://github.com/chrisbanes/Android-PullToRefresh/tree/master/library" target="_blank" rel="external">Android-PullToRefresh:heart:</a>(名库-微博使用的下拉刷新)</li>
+<li><a href="https://github.com/nuptboyzhb/SuperSwipeRefreshLayout" target="_blank" rel="external">SuperSwipeRefreshLayout(600+)</a>(SwipeRefreshLayout的二次—开发自定义SwipeRefreshLayout头部样式)</li>
+<li><a href="https://github.com/stormzhang/SwipeRefreshLayoutDemo" target="_blank" rel="external">SwipeRefreshLayoutDemo</a>(SwipeRefreshLayout demo (Google官方下拉刷新组件))</li>
+<li><a href="https://github.com/jingchenUSTC/PullToRefreshAndLoad" target="_blank" rel="external">PullToRefreshAndLoad</a></li>
+<li><a href="https://github.com/Maxwin-z/XListView-Android/find/master" target="_blank" rel="external">XListView</a>(不推荐使用)</li>
+<li><a href="https://github.com/lynnchurch/PullToRefresh" target="_blank" rel="external">PullToRefresh</a></li>
+<li><a href="https://github.com/Chanven/CommonPullToRefresh" target="_blank" rel="external">CommonPullToRefresh:heart:</a>(在android-Ultra-Pull-To-Refresh的基础上增加了加载更多的支持)</li>
+<li><a href="https://github.com/yilylong/CBPullRefreshListView" target="_blank" rel="external">CBPullRefreshListView</a>(下拉刷新+侧滑菜单+listview+自定义刷新样式)</li>
+</ul>
+<p><img src="https://github.com/yilylong/CBPullRefreshListView/raw/master/GIF1.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/licaomeng/Android-PullToRefresh-SwipeMenuListView-Sample" target="_blank" rel="external">Android-PullToRefresh-SwipeMenuListView-Sample</a>(下拉刷新+侧滑菜单+listview)</li>
+</ul>
+<p><img src="https://github.com/licaomeng/Android-PullToRefresh-SwipeMenuListView-Sample/raw/master/demo.gif" alt=""></p>
+<h3 id="Toast">Toast</h3><ul>
+<li><a href="https://github.com/JohnPersano/SuperToasts" target="_blank" rel="external">SuperToasts</a></li>
+<li><a href="https://github.com/johnkil/Android-AppMsg" target="_blank" rel="external">Android-AppMsg</a></li>
+<li><a href="https://github.com/keyboardsurfer/Crouton" target="_blank" rel="external">Crouton:heart:</a></li>
+</ul>
+<h3 id="Blur">Blur</h3><ul>
+<li><a href="https://github.com/kikoso/android-stackblur" target="_blank" rel="external">android-stackblur</a></li>
+</ul>
+<h3 id="Segmented">Segmented</h3><ul>
+<li><a href="https://github.com/Kaopiz/android-segmented-control" target="_blank" rel="external">android-segmented-control:heart:</a>(ios UISegmentedControl for android)<br><img src="https://raw.githubusercontent.com/hoang8f/android-segmented-control/master/screenshot/screenshot3.png" alt=""></li>
+<li><a href="https://github.com/7heaven/SHSegmentControl" target="_blank" rel="external">SHSegmentControl</a>(a simple SegmentControl Widget)</li>
+<li><a href="https://github.com/gspd-mobi/SegmentedBarView-Android" target="_blank" rel="external">SegmentedBarView-Android</a>(Custom UI control for android which is showing data as a segments and a value inside them)()<br><img src="https://camo.githubusercontent.com/9837de76dfa76929b63d3053b5cc2457516b90d5/687474703a2f2f692e696d6775722e636f6d2f4531697654374e2e706e67" alt=""></li>
+<li><a href="https://github.com/liuhuibin/AndroidSegmentControl" target="_blank" rel="external">AndroidSegmentControl</a><br><img src="https://github.com/liuhuibin/AndroidSegmentControl/raw/master/.raw/snapshot.jpg" alt=""></li>
+<li><a href="https://github.com/pucamafra/android-segmentedtab" target="_blank" rel="external">android-segmentedtab</a><br><img src="https://github.com/pucamafra/android-segmentedtab/raw/master/screenshots/sample.png" alt=""></li>
+</ul>
+<h3 id="PopupWindow">PopupWindow</h3><ul>
+<li><a href="https://github.com/Meetic/MaryPopup" target="_blank" rel="external">MaryPopup</a></li>
+<li><a href="https://github.com/razerdp/BasePopup" target="_blank" rel="external">BasePopup</a></li>
+</ul>
+<h3 id="wheelView">wheelView</h3><pre><code>底部选择器的效果可以为应用开发增色不少；
+</code></pre><ul>
+<li><a href="https://github.com/wangjiegulu/WheelView" target="_blank" rel="external">WheelView</a>(Android滚动选择控件)</li>
+<li><a href="https://github.com/AigeStudio/WheelPicker" target="_blank" rel="external">WheelPicker</a>(具有弯曲和透视效果的wheel)</li>
+<li><a href="https://github.com/gzu-liyujiang/AndroidPicker" target="_blank" rel="external">时间选址器，菜单选择器，时分选择器</a> :heart:安卓选择器类库，包括日期时间选择器、单项选择器、二三级联动选择器、地址选择器、颜色选择器、文件目录选择器、数字选择器等，可自定义顶部及底部界面，可自定义窗口动画。Picker for android, include date&amp;time/option/number/address/city/color/file&amp;directory.</li>
+<li><a href="https://github.com/ai212983/android-spinnerwheel" target="_blank" rel="external">android-spinnerwheel</a>(水平和垂直wheelview)</li>
+<li><a href="https://github.com/shchurov/HorizontalWheelView" target="_blank" rel="external">HorizontalWheelView</a>(水平wheelview)</li>
+<li><a href="https://github.com/lantouzi/WheelView-Android" target="_blank" rel="external">WheelView-Android</a>(水平wheelview)</li>
+<li><a href="https://github.com/BCsl/CursorWheelLayout" target="_blank" rel="external">CursorWheelLayout</a>(wheel圆形菜单:heart:)</li>
+<li><a href="https://github.com/saiwu-bigkoo/Android-PickerView" target="_blank" rel="external">Android-PickerView</a></li>
+</ul>
+<p><img src="https://github.com/saiwu-bigkoo/PickerView/raw/master/preview/pickerdemo.gif" alt=""></p>
+<h3 id="折叠菜单">折叠菜单</h3><ul>
+<li><a href="https://github.com/Ramotion/folding-cell-android" target="_blank" rel="external">folding-cell-android</a></li>
+<li><a href="https://github.com/tjerkw/Android-SlideExpandableListView" target="_blank" rel="external">Android-SlideExpandableListView</a></li>
+<li><a href="https://github.com/Manabu-GT/ExpandableTextView" target="_blank" rel="external">ExpandableTextView</a></li>
+</ul>
+<h3 id="菜单">菜单</h3><ul>
+<li><a href="https://github.com/ta893115871/StickyNavLayout" target="_blank" rel="external">StickyNavLayout-悬浮菜单</a></li>
+<li><a href="http://p.codekk.com/detail/Android/fanOfDemo/FloatMenuSample" target="_blank" rel="external">FloatMenuSample(悬浮菜单)</a></li>
+<li><a href="https://github.com/baoyongzhang/SwipeMenuListView" target="_blank" rel="external">SwipeMenuListView</a></li>
+<li><a href="https://github.com/arlong/MultiMenuSelect" target="_blank" rel="external">MultiMenuSelect</a></li>
+<li><a href="https://github.com/SpecialCyCi/AndroidResideMenu" target="_blank" rel="external">AndroidResideMenu[QQ侧滑风格]</a></li>
+<li><a href="https://github.com/hongyangAndroid/Android-CircleMenu" target="_blank" rel="external">圆形菜单，旋转</a></li>
+<li><a href="https://github.com/dongjunkun/DropDownMenu" target="_blank" rel="external">多选菜单DropDownMenu</a></li>
+<li><a href="https://github.com/rebus007/BottomDialog" target="_blank" rel="external">BottomDialog(固定式静态菜单)</a></li>
+<li><a href="https://github.com/wuyexiong/WechatLikeBottomTabUI" target="_blank" rel="external">抄袭微信Android6.0版本底部菜单渐变效果</a></li>
+<li><a href="https://github.com/soarcn/BottomSheet" target="_blank" rel="external">BottomSheet(底部菜单)1455+</a></li>
+<li><a href="https://github.com/Flipboard/bottomsheet" target="_blank" rel="external">bottomsheet(底部菜单)2151+</a></li>
+<li><a href="https://github.com/roughike/BottomBar" target="_blank" rel="external">BottomBar(底部菜单)3245+</a></li>
+<li><a href="https://github.com/aurelhubert/ahbottomnavigation" target="_blank" rel="external">ahbottomnavigation(底部菜单)1003+</a></li>
+<li><a href="https://github.com/Ashok-Varma/BottomNavigation" target="_blank" rel="external">BottomNavigatio(底部菜单)700+</a></li>
+<li><a href="https://github.com/armcha/LuseenBottomNavigation" target="_blank" rel="external">LuseenBottomNavigation(底部菜单)500+</a> </li>
+<li><a href="https://github.com/kingideayou/SlideBottomPanel" target="_blank" rel="external">SlideBottomPanel(知乎底部菜单)500+</a></li>
+<li><a href="https://github.com/Kennyc1012/BottomSheet" target="_blank" rel="external">BottomSheet(底部菜单)400+</a></li>
+<li><a href="https://github.com/sephiroth74/Material-BottomNavigation" target="_blank" rel="external">Material-BottomNavigation(底部菜单)300+</a></li>
+<li><a href="https://github.com/michael-rapp/AndroidBottomSheet" target="_blank" rel="external">AndroidBottomSheet(底部菜单)200+</a></li>
+<li><a href="https://github.com/haibuzou/ExpandTable" target="_blank" rel="external">ExpandTable</a></li>
+<li><a href="https://github.com/Clans/FloatingActionButton" target="_blank" rel="external">FloatingActionButton</a>:heart: Android Floating Action Button based on Material Design specification, api14+</li>
+<li><a href="https://github.com/futuresimple/android-floating-action-button" target="_blank" rel="external">android-floating-action-button</a></li>
+<li><a href="https://github.com/makovkastar/FloatingActionButton" target="_blank" rel="external">FloatingActionButton</a></li>
+</ul>
+<h3 id="侧滑菜单">侧滑菜单</h3><ul>
+<li><a href="https://github.com/mikepenz/MaterialDrawer" target="_blank" rel="external">MaterialDrawer</a></li>
+<li><a href="https://github.com/SimonVT/android-menudrawer" target="_blank" rel="external">android-menudrawer</a></li>
+<li><a href="https://github.com/jfeinstein10/SlidingMenu" target="_blank" rel="external">SlidingMenu</a></li>
+<li><a href="https://github.com/Kilnn/SlideListView" target="_blank" rel="external">左右侧滑菜单库</a></li>
+<li><a href="http://download.csdn.net/download/fire_fire_fire/7263201" target="_blank" rel="external">SlidingMenu下载地址</a></li>
+</ul>
+<h3 id="对话框">对话框</h3><ul>
+<li><a href="https://github.com/mylhyl/AndroidSuperDialog" target="_blank" rel="external">AndroidSuperDialog :heart:</a></li>
+<li><a href="https://github.com/afollestad/material-dialogs" target="_blank" rel="external">material-dialogs<br>:heart:</a></li>
+<li><a href="https://github.com/avast/android-styled-dialogs" target="_blank" rel="external">android-styled-dialogs</a></li>
+<li><a href="https://github.com/pedant/sweet-alert-dialog" target="_blank" rel="external">sweet-alert-dialog</a></li>
+<li><a href="https://github.com/sd6352051/NiftyDialogEffects" target="_blank" rel="external">NiftyDialogEffects</a></li>
+<li><a href="https://github.com/orhanobut/dialogplus" target="_blank" rel="external">dialogplus</a></li>
+<li><a href="https://github.com/drakeet/MaterialDialog" target="_blank" rel="external">MaterialDialog</a></li>
+<li><a href="https://github.com/lewisjdeane/L-Dialogs" target="_blank" rel="external">L-Dialogs</a></li>
+<li><a href="https://github.com/michaelye/EasyDialog" target="_blank" rel="external">EasyDialog</a></li>
+<li><a href="https://github.com/douglasjunior/android-simple-tooltip" target="_blank" rel="external">android-simple-tooltip</a> A simple library based on PopupWindow to create Tooltips on Android. :heart:</li>
+</ul>
+<h3 id="搜索">搜索</h3><ul>
+<li><a href="https://github.com/MiguelCatalan/MaterialSearchView" target="_blank" rel="external">MaterialSearchView</a></li>
+<li><a href="https://github.com/TakeoffAndroid/MaterialDialogSearchView" target="_blank" rel="external">MaterialDialogSearchView</a></li>
+<li><a href="https://github.com/lapism/SearchView" target="_blank" rel="external">SearchView</a></li>
+<li><a href="https://github.com/EugeneHoran/Android-Material-SearchView" target="_blank" rel="external">Android-Material-SearchView[推荐]</a></li>
+<li><a href="https://github.com/arimorty/floatingsearchview" target="_blank" rel="external">floatingsearchview</a></li>
+</ul>
+<h3 id="表格">表格</h3><ul>
+<li><a href="https://github.com/InQBarna/TableFixHeaders" target="_blank" rel="external">TableFixHeaders[横向纵向滑动的表格-多行多列]</a></li>
+</ul>
+<h3 id="SeekBar">SeekBar</h3><ul>
+<li><a href="https://github.com/soyoungboy/NumberSeekBar" target="_blank" rel="external">NumberSeekBar</a></li>
+<li><a href="https://github.com/anothem/android-range-seek-bar" target="_blank" rel="external">android-range-seek-bar</a>  It provides a SeekBar similar to the default Android one, but with two thumb controls allowing a range to be selected, and some other extras as well.</li>
+<li><a href="https://github.com/jackrex/DoubleSeekBar" target="_blank" rel="external">DoubleSeekBar</a>应为需要实现一个类似于双向滑动的SeekBar，看看了Android 自身的SeekBar 实在是太简陋了，根本实现不了所需要的功能故，自己自定义一个View 简单的实现了类似于双向滑动的SeekBar 效果。 吐槽一下，功能比较简单，计算有点稍微复杂…..</li>
+</ul>
+<h3 id="布局">布局</h3><ul>
+<li><a href="https://github.com/daimajia/AndroidViewHover" target="_blank" rel="external">AndroidViewHover</a></li>
+<li><a href="https://github.com/zhaozhentao/InboxLayout" target="_blank" rel="external">InboxLayout</a><br><img src="https://raw.githubusercontent.com/zhaozhentao/InboxLayout/master/screenshot/pic.gif" alt="效果展示"></li>
+<li><a href="https://github.com/dodola/PinterestLikeAdapterView" target="_blank" rel="external">瀑布流</a></li>
+<li><a href="https://github.com/bingoogolapple/BGASwipeItemLayout-Android" target="_blank" rel="external">BGASwipeItemLayout-Android</a></li>
+<li><a href="https://github.com/thiagolocatelli/android-uitableview" target="_blank" rel="external">android-uitableview</a></li>
+<li><a href="https://github.com/jgilfelt/android-viewbadger" target="_blank" rel="external">android-viewbadger</a></li>
+<li><a href="https://github.com/motianhuo/wechat" target="_blank" rel="external">微信布局</a></li>
+</ul>
+<h3 id="标签">标签</h3><ul>
+<li><a href="http://p.codekk.com/detail/Android/hongyangAndroid/FlowLayout" target="_blank" rel="external">FlowLayout</a></li>
+<li><a href="https://github.com/2dxgujun/AndroidTagGroup" target="_blank" rel="external">AndroidTagGroup</a></li>
+<li><a href="https://github.com/jackuhan/FlowlayoutTags" target="_blank" rel="external">FlowlayoutTags</a></li>
+<li><a href="https://github.com/hanhailong/FlowTag" target="_blank" rel="external">FlowTag</a></li>
+<li><a href="https://github.com/kingideayou/TagCloudView" target="_blank" rel="external">TagCloudView</a></li>
+<li><a href="https://github.com/whilu/AndroidTagView" target="_blank" rel="external">AndroidTagView(拖拽)</a></li>
+<li><a href="https://github.com/wenhuaijun/EasyTagDragView" target="_blank" rel="external">EasyTagDragView(仿网易新闻分类tag)</a></li>
+<li><a href="https://github.com/wedcel/DragExpandGrid" target="_blank" rel="external">DragExpandGrid</a></li>
+</ul>
+<h3 id="拖拽">拖拽</h3><ul>
+<li><a href="https://github.com/wedcel/DragExpandGrid" target="_blank" rel="external">DragExpandGrid(500+)</a></li>
+<li><a href="https://github.com/bauerca/drag-sort-listview" target="_blank" rel="external">drag-sort-listview</a></li>
+<li><a href="https://github.com/chenupt/DragTopLayout" target="_blank" rel="external">DragTopLayout</a></li>
+</ul>
+<h3 id="文件">文件</h3><ul>
+<li><a href="https://github.com/iPaulPro/aFileChooser" target="_blank" rel="external">aFileChooser</a></li>
+<li><a href="https://github.com/nbsp-team/MaterialFilePicker" target="_blank" rel="external">MaterialFilePicker</a></li>
+<li><a href="https://github.com/spacecowboy/NoNonsense-FilePicker" target="_blank" rel="external">NoNonsense-FilePicker</a></li>
+</ul>
+<h3 id="树">树</h3><ul>
+<li><a href="https://github.com/bmelnychuk/AndroidTreeView" target="_blank" rel="external">AndroidTreeView[多级树]</a></li>
+</ul>
+<h3 id="WebView">WebView</h3><ul>
+<li><a href="http://p.codekk.com/detail/Android/HomHomLin/SlidingLayout" target="_blank" rel="external">SlidingLayout( 仿微信网页下拉功能)</a></li>
+</ul>
+<h3 id="网络请求">网络请求</h3><ul>
+<li><a href="https://github.com/hongyangAndroid/okhttp-utils" target="_blank" rel="external">okhttp-utils</a></li>
+<li><a href="https://github.com/square/okhttp" target="_blank" rel="external">okhttp（推荐）</a></li>
+<li><a href="https://github.com/jeasonlzy0216/OkHttpUtils" target="_blank" rel="external">OkHttpUtils:heart:</a>(封装版)</li>
+<li><a href="https://github.com/loopj/android-async-http" target="_blank" rel="external">android-async-http</a></li>
+<li><a href="https://github.com/square/retrofit" target="_blank" rel="external">retrofit:heart:</a></li>
+<li><a href="https://github.com/mcxiaoke/android-volley" target="_blank" rel="external">android-volley</a></li>
+<li><a href="https://android.googlesource.com/platform/frameworks/volley" target="_blank" rel="external">volley</a></li>
+</ul>
+<h3 id="即时通信">即时通信</h3><ul>
+<li><a href="https://github.com/Flowdalic/asmack" target="_blank" rel="external">asmack</a></li>
+</ul>
+<h3 id="NIO-PRC框架">NIO-PRC框架</h3><ul>
+<li><a href="http://www.oschina.net/p/netty" target="_blank" rel="external">netty</a></li>
+<li><a href="https://github.com/alibaba/dubbo" target="_blank" rel="external">dubbo(阿里PRC框架)</a></li>
+<li><a href="https://github.com/weibocom/motan" target="_blank" rel="external">motan(微博PRC框架)</a></li>
+</ul>
+<h3 id="按钮">按钮</h3><ul>
+<li><a href="https://github.com/futuresimple/android-floating-action-button" target="_blank" rel="external">android-floating-action-button[悬浮按钮]</a></li>
+<li><a href="https://github.com/hoang8f/android-flat-button" target="_blank" rel="external">android-flat-button</a></li>
+</ul>
+<h3 id="ViewPager-1">ViewPager</h3><ul>
+<li><a href="https://github.com/Trinea/android-auto-scroll-view-pager" target="_blank" rel="external">android-auto-scroll-view-pager[广告条]</a></li>
+<li><a href="https://github.com/daimajia/AndroidImageSlider/" target="_blank" rel="external">AndroidImageSlider[广告展示图片]</a></li>
+<li><a href="https://github.com/JakeWharton/Android-ViewPagerIndicator" target="_blank" rel="external">ViewPagerIndicator</a></li>
+<li><a href="https://github.com/TechFreak/WizardPager" target="_blank" rel="external">下一步ViewPager</a></li>
+</ul>
+<h3 id="Toobar">Toobar</h3><ul>
+<li><a href="https://github.com/tekinarslan/AndroidMaterialDesignToolbar" target="_blank" rel="external">AndroidMaterialDesignToolba</a></li>
+</ul>
+<h3 id="二维码">二维码</h3><ul>
+<li><a href="https://github.com/zxing/zxing" target="_blank" rel="external">zxing</a></li>
+<li><a href="https://github.com/drakeet/Seashell-app" target="_blank" rel="external">Seashell-app</a></li>
+<li><a href="https://github.com/mooncafes/BarcodeScanner" target="_blank" rel="external">BarcodeScanner</a></li>
+</ul>
+<h3 id="下载">下载</h3><ul>
+<li><a href="https://github.com/lingochamp/FileDownloader" target="_blank" rel="external">FileDownloader-推荐</a></li>
+</ul>
+<h3 id="适配">适配</h3><ul>
+<li><a href="https://github.com/hongyangAndroid/AndroidAutoLayout" target="_blank" rel="external">AndroidAutoLayout</a></li>
+</ul>
+<h3 id="架构">架构</h3><ul>
+<li><a href="http://p.codekk.com/detail/Android/kymjs/TheMVP" target="_blank" rel="external">TheMVP</a></li>
+</ul>
+<h3 id="视频">视频</h3><ul>
+<li><a href="https://github.com/babylikebird/MusicStation" target="_blank" rel="external">MusicStation</a></li>
+<li><a href="https://github.com/qdrzwd/VideoRecorder" target="_blank" rel="external">VideoRecorder</a></li>
+<li><a href="https://github.com/lipangit/jiecaovideoplayer" target="_blank" rel="external">jiecaovideoplayer</a></li>
+<li><a href="https://github.com/panjichang/weishijie-develop" target="_blank" rel="external">weishijie-develop</a></li>
+<li><a href="https://github.com/iPaulPro/aFileChooser" target="_blank" rel="external">aFileChooser</a></li>
+</ul>
+<h3 id="异常">异常</h3><ul>
+<li><a href="https://github.com/Ereza/CustomActivityOnCrash" target="_blank" rel="external">CustomActivityOnCrash</a>(Android library that allows launching a custom activity when your app crashes, instead of showing the hated “Unfortunately, X has stopped” dialog.)</li>
+</ul>
+<p><img src="https://github.com/Ereza/CustomActivityOnCrash/raw/master/images/frontpage.png" alt=""></p>
+<ul>
+<li><a href="https://github.com/gzu-liyujiang/AndroidCrashHelper" target="_blank" rel="external">AndroidCrashHelper</a></li>
+</ul>
+<p><img src="https://github.com/gzu-liyujiang/AndroidCrashHelper/raw/master/screenshots/1.png" alt=""></p>
+<ul>
+<li><p><a href="https://github.com/ACRA/acra" target="_blank" rel="external">acra</a>(Application Crash Reports for Android)</p>
+</li>
+<li><p><a href="https://github.com/bugsnag/bugsnag-android" target="_blank" rel="external">bugsnag-android:heart:</a>(Bugsnag’s Android crash reporting library automatically detects crashes in your Android apps, collecting diagnostic information and immediately notifying your development team, helping you to understand and resolve issues as fast as possible.)</p>
+</li>
+<li><p><a href="https://github.com/macroday/AppCrashTracker" target="_blank" rel="external">AppCrashTracker:heart:</a>(Its a kind of toolkit to track the exception arising in the application and it will generate a json and can upload in your server using your own post url.)</p>
+</li>
+</ul>
+<ul>
+<li><a href="https://github.com/jcmore2/AppCrash" target="_blank" rel="external">AppCrash</a></li>
+</ul>
+<p><img src="https://github.com/jcmore2/AppCrash/raw/master/raw/sample2.gif" alt=""></p>
+<h3 id="选项卡">选项卡</h3><ul>
+<li><a href="https://github.com/H07000223/FlycoTabLayout" target="_blank" rel="external">选项卡</a></li>
+</ul>
+<h3 id="蓝牙">蓝牙</h3><ul>
+<li><a href="http://code.google.com/p/android-bluetooth/" target="_blank" rel="external">蓝牙-android-bluetooth</a></li>
+</ul>
+<h3 id="动画">动画</h3><ul>
+<li><a href="https://github.com/z56402344/BaseAnimation" target="_blank" rel="external">BaseAnimation</a></li>
+</ul>
+<h3 id="ORM">ORM</h3><ul>
+<li><a href="https://github.com/greenrobot/greenDAO" target="_blank" rel="external">greenDAO</a></li>
+</ul>
+<h3 id="兼容库">兼容库</h3><ul>
+<li><a href="https://github.com/xuyisheng/DesignSupportLibraryDemo" target="_blank" rel="external">DesignSupportLibraryDemo</a></li>
+<li><a href="http://sunjiajia.com/2015/07/02/android-new-widgets-demo/" target="_blank" rel="external">android-new-widgets-demo</a></li>
+</ul>
+<h3 id="音乐系列">音乐系列</h3><ul>
+<li><a href="https://github.com/nekocode/murmur" target="_blank" rel="external">murmur</a></li>
+</ul>
+<h3 id="自定义控件">自定义控件</h3><ul>
+<li><a href="https://github.com/alamkanak/android-empty-layout" target="_blank" rel="external">android-empty-layout</a></li>
+</ul>
+<p><img src="https://github.com/alamkanak/Android-Empty-Layout/raw/master/Screenshots/Screen03.png" alt=""></p>
+<ul>
+<li><a href="https://github.com/vlonjatg/progress-activity" target="_blank" rel="external">progress-activity</a></li>
+</ul>
+<p><img src="https://camo.githubusercontent.com/c11741967467871e60af70f95274241bacf2008e/687474703a2f2f692e696d6775722e636f6d2f564c71743474532e706e67" alt=""></p>
+<ul>
+<li><a href="https://github.com/ldoublem/FlightSeat" target="_blank" rel="external">FlightSeat:heart:</a>(机票座位选择)</li>
+<li><a href="https://github.com/venshine/GoodView" target="_blank" rel="external">GoodView(点赞动画效果)</a></li>
+<li><a href="https://github.com/sockeqwe/SwipeBack" target="_blank" rel="external">SwipeBack-仿简书返回效果</a></li>
+<li><a href="https://github.com/kymjs/EmojiChat" target="_blank" rel="external">EmojiChat-聊天界面</a></li>
+<li><a href="http://www.javaapk.com/source/6170.html" target="_blank" rel="external"> 二级分类菜单</a></li>
+<li><a href="https://github.com/PomepuyN/BlurEffectForAndroidDesign" target="_blank" rel="external">BlurEffectForAndroidDesign</a></li>
+<li><a href="https://github.com/BlueMor/Android-PullLayout" target="_blank" rel="external">仿UCL浏览器下拉眼镜</a></li>
+<li><a href="https://github.com/motianhuo/VCameraDemo" target="_blank" rel="external">微信小视频</a></li>
+<li><a href="https://github.com/xuyunqiang/LuckyPan" target="_blank" rel="external">抽奖</a></li>
+<li><a href="https://github.com/huopochuan/ZhuanpainView" target="_blank" rel="external">ZhuanpainView</a></li>
+<li><a href="https://github.com/qyxxjd/MultipleStatusView" target="_blank" rel="external">自定义状态的View展示</a></li>
+<li><a href="https://github.com/panyiho/NineGridView" target="_blank" rel="external">自定义九宫格</a></li>
+<li><a href="https://github.com/hehonghui/Colorful" target="_blank" rel="external">APP换肤</a></li>
+<li><a href="http://bbs.itheima.com/thread-127978-1-1.html" target="_blank" rel="external">发表说说界面</a></li>
+<li><a href="https://github.com/xmagicj/LazyFragment" target="_blank" rel="external">懒加载的Fragment</a></li>
+<li><a href="https://github.com/grz/wxpay_scanpay_java_demo_proj" target="_blank" rel="external">微信支付案例</a></li>
+<li><a href="https://github.com/jeasonlzy0216/NineGridView" target="_blank" rel="external">类似QQ空间，微信朋友圈，微博主页等，展示图片的九宫格控件，自动根据图片的数量确定图片大小和控件大小</a></li>
+<li><a href="https://github.com/HomHomLin/SlidingLayout" target="_blank" rel="external">仿微信嵌入网页下拉滑动效果</a></li>
+<li><a href="https://github.com/jeasonlzy0216/AlphaIndicatorView" target="_blank" rel="external">仿新版微信底部tab渐变效果</a></li>
+<li><a href="https://github.com/mabeijianxi/Circle-of-friends" target="_blank" rel="external">类似微信朋友圈QQ空间，也可用做商品评价或者其他需要图文展示的列表</a></li>
+<li><a href="https://github.com/ioneday/FlowImageLayout" target="_blank" rel="external">主流app图片展示案例</a></li>
+<li><a href="https://github.com/zhaozepeng/AlbumImageSelect" target="_blank" rel="external">仿微信图片选择</a></li>
+<li><a href="https://github.com/lidong1665/Android-UploadMultipartImage" target="_blank" rel="external">仿微信图片选择</a></li>
+<li><a href="https://github.com/songkailei/android-shape-imageview" target="_blank" rel="external">微信发送图片样式自定义ImageView</a></li>
+<li><a href="https://github.com/angeldevil/ChatImageView" target="_blank" rel="external">ChatImageView</a></li>
+<li><a href="https://github.com/zuiyu/superdaxue" target="_blank" rel="external">微信公众号查询课程成绩系统（web项目）</a></li>
+<li><a href="https://github.com/xie2000/ClipImageDemo" target="_blank" rel="external">图片裁剪高仿微信头像裁剪</a></li>
+<li><a href="https://github.com/fuxuemingzhu/WeChoice" target="_blank" rel="external">精选微信公共号文章app</a></li>
+<li><a href="https://github.com/wangjia55/ExpandGridView" target="_blank" rel="external">这是一个仿微信群组成员管理的界面，其核心重点在于对Adapter的掌握和变化处理</a></li>
+<li><a href="https://github.com/scp504677840/MoveMapLocation" target="_blank" rel="external">百度地图定位和选址</a></li>
+<li><a href="https://github.com/amapapi/Android_UsingCar_Example" target="_blank" rel="external">高德地图定位</a></li>
+<li><a href="https://github.com/zengfantian/zftlive" target="_blank" rel="external">工具类站点—zftlive</a></li>
+<li><a href="https://github.com/smallnest/FlyRunner" target="_blank" rel="external">记录跑步路线</a></li>
+<li><a href="https://github.com/weidongjian/AmapDemo" target="_blank" rel="external">仿照一号专车的地图界面</a></li>
+<li><a href="https://github.com/XunMengWinter/Now" target="_blank" rel="external">网络爬虫获取图文效果的案例–Now</a></li>
+<li><a href="https://github.com/CraftsmenTech/jurongwang" target="_blank" rel="external">p2p网站APP 案例源码</a></li>
+<li><a href="https://github.com/himanshu-soni/QuantityView" target="_blank" rel="external">QuantityView)</a>(Android quantity view with add and remove button.)</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/himanshu-soni/QuantityView/master/screenshots/device-2015-09-29-191352.png" alt=""></p>
+<ul>
+<li><a href="https://github.com/jeasonlzy0216/OverScrollDecor" target="_blank" rel="external">OverScrollDecor</a>(类似IOS的over-scrolling效果，即对于滑动到顶部的View继续滑动时会超出，松手后自动还原到原始位置。支持ListView，GridView，ScrollView，WebView，RecyclerView，以及其他的任意View和ViewGroup)</li>
+</ul>
+<p><img src="https://github.com/jeasonlzy0216/OverScrollDecor/raw/master/screenshots/demo0.png" alt=""><br><img src="https://github.com/jeasonlzy0216/OverScrollDecor/raw/master/screenshots/demo3.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/xmuSistone/android-vertical-slide-view" target="_blank" rel="external">android-vertical-slide-view</a>(仿照淘宝和聚美优品，在商品详情页，向上拖动时，可以加载下一页。使用ViewDragHelper，滑动比较流畅。<br>scrollView滑动到底部的时候，再行向上拖动时，添加了一些阻力。)</li>
+</ul>
+<p><img src="https://github.com/xmuSistone/android-vertical-slide-view/raw/master/capture.gif" alt=""></p>
+<ul>
+<li><p><a href="https://github.com/jeasonlzy0216/VerticalSlideView" target="_blank" rel="external">VerticalSlideView</a>(类似淘宝的商品详情页，继续拖动查看详情，其中拖动增加了阻尼，并且重写了ListView，GridView，ScrollView，WebView，RecyclerView 的 dispatchTouchEvent 方法，使用的时候无须额外的代码，可以任意嵌套使用。)</p>
+</li>
+<li><p><a href="https://github.com/jeasonlzy0216/AlphaIndicatorView" target="_blank" rel="external">AlphaIndicatorView</a></p>
+</li>
+</ul>
+<p><img src="https://github.com/jeasonlzy0216/AlphaIndicatorView/raw/master/screenshots/demo1.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/cpoopc/ScrollableLayout" target="_blank" rel="external">ScrollableLayout</a></li>
+</ul>
+<p><img src="https://github.com/cpoopc/ScrollableLayout/raw/master/image/preview.gif" alt=""></p>
+<h3 id="图表">图表</h3><ul>
+<li><a href="http://p.codekk.com/detail/Android/JeasonWong/AndroidChart" target="_blank" rel="external">AndroidChart</a></li>
+<li><a href="https://github.com/xcltapestry/XCL-Charts" target="_blank" rel="external">XCL-Charts</a></li>
+<li><a href="https://github.com/PhilJay/MPAndroidChart" target="_blank" rel="external">MPAndroidChart(推荐)</a></li>
+<li><a href="https://github.com/lecho/hellocharts-android" target="_blank" rel="external">hellocharts-android</a></li>
+</ul>
+<h3 id="权限控制">权限控制</h3><ul>
+<li><a href="https://github.com/mylhyl/AndroidAcp" target="_blank" rel="external">AndroidAcp(Android 6.0权限简化)</a></li>
+</ul>
+<h3 id="仪表盘">仪表盘</h3><ul>
+<li><a href="https://github.com/woxingxiao/DashboardViewDemo" target="_blank" rel="external">DashboardViewDemo</a></li>
+<li><a href="https://github.com/103style/SpeedControl" target="_blank" rel="external">汽车速度仪表盘</a></li>
+<li><a href="https://github.com/xcltapestry/XCL-Charts" target="_blank" rel="external">XCL-Charts</a></li>
+<li><a href="http://www.ithao123.cn/content-10797194.html" target="_blank" rel="external">仿支付宝蚂蚁积分仪表控件</a></li>
+</ul>
+<h3 id="换肤">换肤</h3><ul>
+<li><a href="https://github.com/fengjundev/Android-Skin-Loader" target="_blank" rel="external">Android-Skin-Loader(动态加载技术)</a></li>
+<li><a href="https://github.com/dersoncheng/MultipleTheme" target="_blank" rel="external">MultipleTheme</a></li>
+<li><a href="https://github.com/hehonghui/Colorful" target="_blank" rel="external">Colorful</a></li>
+<li><a href="https://github.com/burgessjp/MaterialDesignDemo" target="_blank" rel="external">MaterialDesignDemo</a></li>
+<li></li>
+</ul>
+<h3 id="安全">安全</h3><ul>
+<li><a href="https://github.com/ashishb/android-security-awesome" target="_blank" rel="external">android-security-awesome</a></li>
+<li></li>
+</ul>
+<h3 id="面试">面试</h3><ul>
+<li><a href="https://github.com/zzguo28/Android-Interview" target="_blank" rel="external">Android-Interview</a></li>
+</ul>
+<h3 id="压力测试">压力测试</h3><ul>
+<li><a href="http://www.oschina.net/p/tsung/" target="_blank" rel="external">tsung</a></li>
+<li></li>
+</ul>
+<h3 id="日志">日志</h3><ul>
+<li><a href="https://github.com/orhanobut/logger" target="_blank" rel="external">logger</a></li>
+</ul>
+<p><img src="https://github.com/orhanobut/logger/raw/master/images/logger-log.png" alt=""></p>
+<h3 id="插件化">插件化</h3><ul>
+<li><a href="https://github.com/KeepSafe/dexcount-gradle-plugin" target="_blank" rel="external">dexcount-gradle-plugin</a>(方法数统计)</li>
+<li><a href="http://www.methodscount.com/" target="_blank" rel="external">methodscount</a>(在线类库方法数查询)</li>
+<li><a href="https://github.com/CtripMobile/DynamicAPK" target="_blank" rel="external">DynamicAPK</a>(DynamicAPK是一套用于实现多dex/apk加载的解决方案。它可以帮助你重新组织Android工程的配置和开发模式，实现多个子工程并行开发（以android studio module的形式），同时支持hot fix（在线修复有问题的功能）, 插件式载入不常用的功能（下载插件后再载入）。所有动态加载的插件不仅包含代码，也可以包含资源（资源的动态加载比代码要麻烦很多），因此是以APK形式实现的。)</li>
+</ul>
+<h3 id="二维码-1">二维码</h3><ul>
+<li><p><a href="https://github.com/zxing/zxing" target="_blank" rel="external">zxing</a>(Official ZXing (“Zebra Crossing”) project home)</p>
+</li>
+<li><p><a href="https://github.com/bingoogolapple/BGAQRCode-Android" target="_blank" rel="external">BGAQRCode-Android</a>（扫描二维码、扫描条形码、相册获取图片后识别、生成带 Logo 二维码、支持微博微信 QQ 二维码扫描样式）</p>
+</li>
+</ul>
+<p><img src="https://cloud.githubusercontent.com/assets/8949716/17475203/5d788730-5d8c-11e6-836a-61e885e05453.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/yipianfengye/android-zxingLibrary" target="_blank" rel="external">android-zxingLibrary</a>(几行代码快速集成二维码扫描功能)</li>
+</ul>
+<p><img src="https://github.com/yipianfengye/android-zxingLibrary/raw/master/images/ezgif.com-video-to-gif%20(2" alt="">%2015.33.08.gif)</p>
+<ul>
+<li><a href="https://github.com/yoojia/NextQRCode" target="_blank" rel="external">NextQRCode</a>(基于ZXing Android实现的QRCode扫描支持库。包括<code>生成二维码图片</code>和<code>相机扫描二维码图片即时解码</code>两部分功能。)</li>
+</ul>
+<h2 id="支付">支付</h2><ul>
+<li><a href="https://github.com/wxyyxc1992/WXWeChatToolkits" target="_blank" rel="external">WXWeChatToolkits</a>(我的微信SDK，包括公众平台管理、微信支付等各个版本)</li>
+<li><a href="https://github.com/Martin404/PayMap" target="_blank" rel="external">PayMap</a>(Java后端实现三方支付集成支付宝（国内、国际、移动端、PC端）、微信、银联（acp、upop）、光大（网关、网页）、邮政支付)</li>
+<li><a href="https://github.com/fython/AlipayZeroSdk" target="_blank" rel="external">AlipayZeroSdk</a>(Lightest Alipay Transfer Helper - 最轻量的支付宝转账工具类（Android）)</li>
+</ul>
+<h2 id="社交分享">社交分享</h2><ul>
+<li><a href="https://github.com/elbbbird/ESSocialSDK" target="_blank" rel="external">ESSocialSDK</a>(社交登录授权、分享SDK，支持微信、微博和QQ)</li>
+</ul>
+<h2 id="源码分析">源码分析</h2><ul>
+<li><a href="https://github.com/LittleFriendsGroup/AndroidSdkSourceAnalysis" target="_blank" rel="external">LittleFriendsGroup/AndroidSdkSourceAnalysis</a>(android sdk 源码解析——旨在帮助Android开发者更好的学习Android！我们只是一群普通的程序员，但是，我们热爱分享，想热热闹闹的玩点有意义的事！如果你也想陪我们一起愉快的玩耍，欢迎加入我们！Issues认领分析文章！)</li>
+</ul>
+<h2 id="书签分享">书签分享</h2><ul>
+<li><a href="https://github.com/aosp-exchange-group/share" target="_blank" rel="external">share</a>(<br>Android 开源交流 QQ 群分享汇总, 微信公众号:codekk, 网站: <a href="http://www.codekk.com/" target="_blank" rel="external">http://www.codekk.com/</a>)</li>
+<li><a href="https://github.com/ColorfulCat/AndroidGuide" target="_blank" rel="external">AndroidGuide</a>(AndroidCat安卓书签网 <a href="http://www.androidcat.com/" target="_blank" rel="external">http://www.androidcat.com/</a>)</li>
+<li><a href="https://github.com/zhengxiaopeng/android-dev-bookmarks" target="_blank" rel="external">android-dev-bookmarks</a>(Android Dev Bookmarks(ADB) - Android 开发者的浏览器书签 For CN-Dev now | 历史更新文章戳这里：<a href="http://rocko.xyz/categories/Android-Dev-Bookmarks/" target="_blank" rel="external">http://rocko.xyz/categories/Android-Dev-Bookmarks/</a> | 订阅： <a href="https://tinyletter.com/Rocko" target="_blank" rel="external">https://tinyletter.com/Rocko</a> | 站点主页： <a href="http://adb.rocko.xyz" target="_blank" rel="external">http://adb.rocko.xyz</a>)</li>
+<li><a href="https://github.com/Arisono/MarksToAndroid" target="_blank" rel="external">MarksToAndroid</a></li>
+<li></li>
+</ul>
+<h3 id="Shadow">Shadow</h3><ul>
+<li><a href="https://github.com/ShogoMizumoto/ZDepthShadow" target="_blank" rel="external">ZDepthShadow</a></li>
+</ul>
+<p><img src="https://github.com/ShogoMizumoto/ZDepthShadow/raw/master/blobs/demo.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/wangjiegulu/ShadowViewHelper" target="_blank" rel="external">ShadowViewHelper</a></li>
+</ul>
+<p><img src="https://github.com/wangjiegulu/ShadowViewHelper/raw/master/screenshot/shadow_a.png" alt=""></p>
+<ul>
+<li><a href="https://github.com/dmytrodanylyk/shadow-layout" target="_blank" rel="external">shadow-layout</a></li>
+</ul>
+<p><img src="https://github.com/dmytrodanylyk/shadow-layout/raw/master/screenshots/intro.png" alt=""></p>
+<h3 id="StepView">StepView</h3><ul>
+<li><a href="https://github.com/drozdzynski/Steppers" target="_blank" rel="external">Steppers</a></li>
+</ul>
+<p><img src="https://camo.githubusercontent.com/cf686b810bc9398187f42a30579e4ebab3dea863/68747470733a2f2f64726f7a647a796e736b692e6d652f7265706f2f73746570706572732f73637265656e2e676966" alt=""></p>
+<ul>
+<li><a href="https://github.com/badoualy/stepper-indicator" target="_blank" rel="external">stepper-indicator</a></li>
+</ul>
+<p><img src="https://github.com/badoualy/stepper-indicator/raw/master/ART/screen.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/baoyachi/StepView" target="_blank" rel="external">StepView</a></li>
+</ul>
+<p><img src="https://github.com/baoyachi/StepView/raw/master/art/snapshot.png" alt=""></p>
+<p><img src="https://github.com/baoyachi/StepView/raw/master/art/vertical_stepview.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/anton46/Android-StepsView" target="_blank" rel="external">Android-StepsView</a></li>
+</ul>
+<p><img src="https://github.com/anton46/Android-StepsView/raw/master/image2.png" alt=""></p>
+<ul>
+<li><a href="https://github.com/fcannizzaro/material-stepper" target="_blank" rel="external">material-stepper</a></li>
+</ul>
+<p><img src="https://github.com/FrancisCan/MaterialStepper/raw/master/screenshot/tabs.png?raw=true" alt=""></p>
+<h3 id="Calendar">Calendar</h3><ul>
+<li><a href="https://github.com/prolificinteractive/material-calendarview" target="_blank" rel="external">material-calendarview</a>(A Material design back port of Android’s CalendarView. The goal is to have a Material look and feel, rather than 100% parity with the platform’s implementation.)(<strong>2016-9-27</strong>)</li>
+</ul>
+<p><img src="https://github.com/prolificinteractive/material-calendarview/raw/master/images/screencast.gif" alt=""></p>
+<ul>
+<li><a href="https://github.com/roomorama/Caldroid" target="_blank" rel="external">Caldroid</a>(A better calendar for Android)(<strong>2016-9-27</strong>)</li>
+</ul>
+<p><img src="https://camo.githubusercontent.com/8160f830305493135ea8ae1fbd9e12713d6f0972/68747470733a2f2f7261772e6769746875622e636f6d2f726f6f6d6f72616d612f43616c64726f69642f6d61737465722f73637265656e73686f742f312e706e67" alt=""><br><img src="https://camo.githubusercontent.com/7ef947cbda3fd00d9b05bdf321499af9f4ec35f0/68747470733a2f2f7261772e6769746875622e636f6d2f726f6f6d6f72616d612f43616c64726f69642f6d61737465722f73637265656e73686f742f6461726b2e706e67" alt=""></p>
+<ul>
+<li><a href="https://github.com/square/android-times-square" target="_blank" rel="external">android-times-square</a>(Standalone Android widget for picking a single date from a calendar view.)(<strong>2016-9-27</strong>)</li>
+</ul>
+<p><img src="https://github.com/square/android-times-square/raw/master/timesSquareScreenshot.png" alt=""></p>
+<ul>
+<li><a href="https://github.com/alamkanak/Android-Week-View" target="_blank" rel="external">Android-Week-View</a>(Android Week View is an android library to display calendars (week view or day view) within the app. It supports custom styling.)(<strong>2016-9-27</strong>)</li>
+</ul>
+<p><img src="https://github.com/alamkanak/Android-Week-View/raw/develop/images/screen-shot.png" alt=""></p>
+<ul>
+<li><a href="https://github.com/myjoybar/android-calendar-view" target="_blank" rel="external">android-calendar-view</a>(显示阳历，农历，节假日和二十四节气 实现对某月日期的单选或者多选的andorid 日历控件库。Easy to use, powerful, easy to expand the android calendar view library.)(<strong>2016-09-29</strong>)</li>
+</ul>
+<p><img src="https://github.com/myjoybar/android-calendar-view/raw/master/screenshots/screenshot.gif" alt=""></p>
+<h3 id="Styel">Styel</h3><ul>
+<li><a href="https://github.com/Bearded-Hen/Android-Bootstrap" target="_blank" rel="external">Android-Bootstrap</a>(Bootstrap style widgets for Android, with Glyph Icons)(<strong>2016-9-27</strong>)</li>
+</ul>
+<p><img src="https://camo.githubusercontent.com/51755d59ed6fd53158a0d84696e6d184c3a6f4d5/68747470733a2f2f7261772e6769746875622e636f6d2f426561726465642d48656e2f416e64726f69642d426f6f7473747261702f6d61737465722f696d616765732f626f6f7473747261705f627574746f6e2e706e67" alt=""></p>
+<h3 id="视频-1">视频</h3><ul>
+<li><a href="https://github.com/jjdxmashl/jjdxm_ijkplayer" target="_blank" rel="external">jjdxm_ijkplayer</a>(基于ijkplayer简单的UI界面 当前项目是基于ijkplayer项目进行的播放器界面UI封装。 是一个适用于 Android 的 RTMP 播放界面 SDK，可高度定制化和二次开发。特色是同时支持 H.264 软编／硬编和 AAC 软编／硬编。主要是支持RIMP、HLS、MP4、M4A等视频格式的播放。)(<strong>2016-09-28</strong>)</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/jjdxmashl/jjdxm_ijkplayer/master/screenshots/icon01.gif" alt=""><br><img src="https://raw.githubusercontent.com/jjdxmashl/jjdxm_ijkplayer/master/screenshots/icon03.gif" alt=""></p>
+<h3 id="权限">权限</h3><ul>
+<li><a href="https://github.com/holidaycheck/Permissify" target="_blank" rel="external">Permissify</a>(Simplifying Android Permissions)(2016-09-29)</li>
+</ul>
+<p><img src="https://github.com/holidaycheck/Permissify/raw/master/art/sample_record.gif" alt=""></p>
+<h3 id="角标(corner_label)">角标(corner label)</h3><ul>
+<li><a href="https://github.com/czy1121/cornerlabelview" target="_blank" rel="external">cornerlabelview</a>(2016-09-29)</li>
+</ul>
+<p><img src="https://github.com/czy1121/cornerlabelview/raw/master/screenshot_corner_label_view.png" alt=""></p>
+<h2 id="项目源码">项目源码</h2><ul>
+<li><a href="https://github.com/ryanhoo/StylishMusicPlayer" target="_blank" rel="external">https://github.com/ryanhoo/StylishMusicPlayer</a>(A stylish music player for android device 16+)(2016-09-29)</li>
+</ul>
+<p><img src="https://github.com/ryanhoo/StylishMusicPlayer/raw/develop/materials/Artboard.png" alt=""></p>
+<ul>
+<li><a href="https://github.com/antoniolg/MaterializeYourApp" target="_blank" rel="external">MaterializeYourApp</a></li>
+<li><a href="https://github.com/YiuChoi/MicroReader" target="_blank" rel="external">MicroReader(一个小而美的阅读客户端)</a></li>
+<li><a href="https://github.com/sfsheng0322/Bingo" target="_blank" rel="external">Bingo(Bingo是一款IT阅读学习类的开源软件)</a></li>
+<li><a href="https://github.com/TakWolf/CNode-Material-Design" target="_blank" rel="external">CNode社区第三方Android客户端</a></li>
+<li><a href="https://github.com/Nightonke/LeeCo" target="_blank" rel="external">LeeCo</a></li>
+<li><a href="https://github.com/KJFrame/KJBlog" target="_blank" rel="external">KJBlog</a></li>
+<li><a href="https://github.com/oschina/android-app" target="_blank" rel="external">开源中国</a></li>
+<li><a href="https://github.com/pockethub/PocketHub" target="_blank" rel="external">github app客户端</a></li>
+<li><a href="http://git.oschina.net/oschina/android-app" target="_blank" rel="external">开源中国V2</a></li>
+<li><a href="https://github.com/wangdan/AisenWeiBo" target="_blank" rel="external">微博项目</a></li>
+<li><a href="https://github.com/googlesamples/android-UniversalMusicPlayer" target="_blank" rel="external">音乐播放-android-UniversalMusicPlayer</a></li>
+<li><a href="https://github.com/arpitkh96/AmazeFileManager" target="_blank" rel="external">AmazeFileManager  文件夹管理app</a></li>
+<li><a href="https://github.com/daimajia/AnimeTaste" target="_blank" rel="external">AnimeTaste动画项目-代码家</a></li>
+<li><a href="http://code.google.com/p/mytracks/" target="_blank" rel="external">轨迹</a></li>
+<li><a href="https://github.com/umano/AndroidSlidingUpPanel" target="_blank" rel="external">AndroidSlidingUpPanel</a></li>
+<li><a href="https://github.com/JxbSir/YiYuanYunGou" target="_blank" rel="external">YiYuanYunGou</a></li>
+<li><a href="https://github.com/google/iosched" target="_blank" rel="external">iosched</a></li>
+<li><a href="https://github.com/JakeWharton/u2020" target="_blank" rel="external">u2020</a></li>
+<li><a href="https://github.com/sues-lee/SuesNews" target="_blank" rel="external">SuesNews</a></li>
+<li><a href="https://github.com/zfdang/asm-android-client-for-newsmth" target="_blank" rel="external">asm-android-client-for-newsmth</a></li>
+<li><a href="https://github.com/C-Aniruddh/ACEMusicPlayer" target="_blank" rel="external">ACEMusicPlayer</a></li>
+<li><a href="https://github.com/plafue/writeily-pro.git" target="_blank" rel="external">writeily-pro.git)</a></li>
+<li><a href="https://github.com/dkim0419/SoundRecorder" target="_blank" rel="external">SoundRecorder</a></li>
+<li><a href="http://www.open-open.com/lib/view/open1328063267889.html" target="_blank" rel="external">上百个开源项目</a></li>
+<li><a href="https://github.com/zhoubowen-sky/LingDong2.0" target="_blank" rel="external">LingDong2.0</a>(“面对面文件快传”，Android端灵动快传，安卓互传文件，局域网，无网传输文件，Android，file transfer)(2016-09-29)</li>
+</ul>
+<p><img src="https://github.com/zhoubowen-sky/LingDong2.0/raw/master/github-images-folder/yaokongdiannao.jpg" alt=""></p>
+<ul>
+<li><a href="https://github.com/loopeer/code-reader" target="_blank" rel="external">code-reader</a>(One Multi program language code reader  含多语言，md解析，day night主题的多语言代码阅读器CoReader )(2016-09-30)</li>
+</ul>
+<p><img src="https://github.com/loopeer/code-reader/raw/master/screenshot/codereader_setting_day.gif" alt=""></p>
+<p><img src="https://github.com/loopeer/code-reader/raw/master/screenshot/codereader_setting_night.gif" alt=""></p>
+<h3 id="移动前端">移动前端</h3><ul>
+<li><a href="http://mint-ui.github.io/#!/en" target="_blank" rel="external">mint-ui</a>(Mobile UI elements for Vue.js <strong>饿了么前端</strong>)(2016-09-30)   <a href="http://elemefe.github.io/mint-ui/#!/" target="_blank" rel="external">效果演示</a></li>
+<li><a href="https://weui.io/" target="_blank" rel="external">weui</a>(WeUI 是一套同微信原生视觉体验一致的基础样式库，由微信官方设计团队为微信内网页和微信小程序量身设计，令用户的使用感知更加统一。)(2016-09-30) </li>
+<li><a href="http://t.amazeui.org/#/docs/grid?_k=b0othe" target="_blank" rel="external">amazeui</a>(基于 React.js 的移动端 Web 组件库)(2016-09-30)</li>
+<li><a href="https://alibaba.github.io/weex/demo.html" target="_blank" rel="external">weex</a>(A framework for building Mobile cross-platform UI)(2016-09-30)</li>
+<li><a href="https://vux.li/#!/" target="_blank" rel="external">vux</a>(Mobile web UI Components based on Vue and WeUI. Be Cool with Vue &amp; WeUI. <a href="https://vux.li/)(2016-09-30" target="_blank" rel="external">https://vux.li/)(2016-09-30</a>)</li>
+<li><a href="http://m.sui.taobao.org/components/#layout" target="_blank" rel="external">SUI-Mobile</a>(SUI Mobile (MSUI)是由阿里巴巴国际UED前端出品的移动端UI库，轻量精美 <a href="http://m.sui.taobao.org/components/)(2016-09-30" target="_blank" rel="external">http://m.sui.taobao.org/components/)(2016-09-30</a>)</li>
+</ul>
+<hr>
+<h2 id="联系方式">联系方式</h2><ul>
+<li>我的CSDN博客：<a href="http://blog.csdn.net/qingfeng812" target="_blank" rel="external">http://blog.csdn.net/qingfeng812</a></li>
+<li>我的github号：-<a href="https://github.com/Arisono" target="_blank" rel="external">https://github.com/Arisono</a></li>
+<li>我的个人微信公众号：<strong>Android 实战开发</strong>  (欢迎留言)</li>
+<li>QQ群：151909524 （对技术非诚者误进！）</li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Github库/">Github库</a><a href="/tags/书签/">书签</a><a href="/tags/开源项目库/">开源项目库</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/书签/">书签</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://ariono.github.io/2016/10/19/Android 项目库归档 第一期/" data-title="Android 类库 | Arison’blog" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/10/18/第三方接口归档 第一期/"  title="Android 接口">
+ <strong>下一页:</strong><br/> 
+ <span>Android 接口
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comment">
+
+<!-- 多说评论框 start -->  
+<div class="ds-thread" data-thread-key="2016/10/19/Android 项目库归档 第一期/" data-title="Android 类库" data-url="http://ariono.github.io/2016/10/19/Android 项目库归档 第一期/"></div>  
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"arisono"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#目录"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TextView"><span class="toc-number">1.1.</span> <span class="toc-text">TextView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EditText"><span class="toc-number">1.2.</span> <span class="toc-text">EditText</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ImageView"><span class="toc-number">1.3.</span> <span class="toc-text">ImageView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Button"><span class="toc-number">1.4.</span> <span class="toc-text">Button</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spinner"><span class="toc-number">1.5.</span> <span class="toc-text">Spinner</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ProgressBar:heart:"><span class="toc-number">1.6.</span> <span class="toc-text">ProgressBar:heart:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CheckBox"><span class="toc-number">1.7.</span> <span class="toc-text">CheckBox</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#seekbar"><span class="toc-number">1.8.</span> <span class="toc-text">seekbar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ListView"><span class="toc-number">1.9.</span> <span class="toc-text">ListView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GridView"><span class="toc-number">1.10.</span> <span class="toc-text">GridView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ScrollView"><span class="toc-number">1.11.</span> <span class="toc-text">ScrollView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RecyclerView"><span class="toc-number">1.12.</span> <span class="toc-text">RecyclerView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewPager"><span class="toc-number">1.13.</span> <span class="toc-text">ViewPager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#布局Layout"><span class="toc-number">1.14.</span> <span class="toc-text">布局Layout</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#适配器"><span class="toc-number">1.15.</span> <span class="toc-text">适配器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#材料设计"><span class="toc-number">1.16.</span> <span class="toc-text">材料设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工具"><span class="toc-number">1.17.</span> <span class="toc-text">工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#刷新控件"><span class="toc-number">1.18.</span> <span class="toc-text">刷新控件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Toast"><span class="toc-number">1.19.</span> <span class="toc-text">Toast</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Blur"><span class="toc-number">1.20.</span> <span class="toc-text">Blur</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Segmented"><span class="toc-number">1.21.</span> <span class="toc-text">Segmented</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PopupWindow"><span class="toc-number">1.22.</span> <span class="toc-text">PopupWindow</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#wheelView"><span class="toc-number">1.23.</span> <span class="toc-text">wheelView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#折叠菜单"><span class="toc-number">1.24.</span> <span class="toc-text">折叠菜单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#菜单"><span class="toc-number">1.25.</span> <span class="toc-text">菜单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#侧滑菜单"><span class="toc-number">1.26.</span> <span class="toc-text">侧滑菜单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对话框"><span class="toc-number">1.27.</span> <span class="toc-text">对话框</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#搜索"><span class="toc-number">1.28.</span> <span class="toc-text">搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#表格"><span class="toc-number">1.29.</span> <span class="toc-text">表格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SeekBar"><span class="toc-number">1.30.</span> <span class="toc-text">SeekBar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#布局"><span class="toc-number">1.31.</span> <span class="toc-text">布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标签"><span class="toc-number">1.32.</span> <span class="toc-text">标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拖拽"><span class="toc-number">1.33.</span> <span class="toc-text">拖拽</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件"><span class="toc-number">1.34.</span> <span class="toc-text">文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#树"><span class="toc-number">1.35.</span> <span class="toc-text">树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WebView"><span class="toc-number">1.36.</span> <span class="toc-text">WebView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络请求"><span class="toc-number">1.37.</span> <span class="toc-text">网络请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#即时通信"><span class="toc-number">1.38.</span> <span class="toc-text">即时通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NIO-PRC框架"><span class="toc-number">1.39.</span> <span class="toc-text">NIO-PRC框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#按钮"><span class="toc-number">1.40.</span> <span class="toc-text">按钮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewPager-1"><span class="toc-number">1.41.</span> <span class="toc-text">ViewPager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Toobar"><span class="toc-number">1.42.</span> <span class="toc-text">Toobar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二维码"><span class="toc-number">1.43.</span> <span class="toc-text">二维码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载"><span class="toc-number">1.44.</span> <span class="toc-text">下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#适配"><span class="toc-number">1.45.</span> <span class="toc-text">适配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#架构"><span class="toc-number">1.46.</span> <span class="toc-text">架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#视频"><span class="toc-number">1.47.</span> <span class="toc-text">视频</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#异常"><span class="toc-number">1.48.</span> <span class="toc-text">异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选项卡"><span class="toc-number">1.49.</span> <span class="toc-text">选项卡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#蓝牙"><span class="toc-number">1.50.</span> <span class="toc-text">蓝牙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动画"><span class="toc-number">1.51.</span> <span class="toc-text">动画</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ORM"><span class="toc-number">1.52.</span> <span class="toc-text">ORM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#兼容库"><span class="toc-number">1.53.</span> <span class="toc-text">兼容库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#音乐系列"><span class="toc-number">1.54.</span> <span class="toc-text">音乐系列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义控件"><span class="toc-number">1.55.</span> <span class="toc-text">自定义控件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图表"><span class="toc-number">1.56.</span> <span class="toc-text">图表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#权限控制"><span class="toc-number">1.57.</span> <span class="toc-text">权限控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#仪表盘"><span class="toc-number">1.58.</span> <span class="toc-text">仪表盘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#换肤"><span class="toc-number">1.59.</span> <span class="toc-text">换肤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安全"><span class="toc-number">1.60.</span> <span class="toc-text">安全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#面试"><span class="toc-number">1.61.</span> <span class="toc-text">面试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#压力测试"><span class="toc-number">1.62.</span> <span class="toc-text">压力测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#日志"><span class="toc-number">1.63.</span> <span class="toc-text">日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#插件化"><span class="toc-number">1.64.</span> <span class="toc-text">插件化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二维码-1"><span class="toc-number">1.65.</span> <span class="toc-text">二维码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#支付"><span class="toc-number">2.</span> <span class="toc-text">支付</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#社交分享"><span class="toc-number">3.</span> <span class="toc-text">社交分享</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码分析"><span class="toc-number">4.</span> <span class="toc-text">源码分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#书签分享"><span class="toc-number">5.</span> <span class="toc-text">书签分享</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Shadow"><span class="toc-number">5.1.</span> <span class="toc-text">Shadow</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#StepView"><span class="toc-number">5.2.</span> <span class="toc-text">StepView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Calendar"><span class="toc-number">5.3.</span> <span class="toc-text">Calendar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Styel"><span class="toc-number">5.4.</span> <span class="toc-text">Styel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#视频-1"><span class="toc-number">5.5.</span> <span class="toc-text">视频</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#权限"><span class="toc-number">5.6.</span> <span class="toc-text">权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#角标(corner_label)"><span class="toc-number">5.7.</span> <span class="toc-text">角标(corner label)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目源码"><span class="toc-number">6.</span> <span class="toc-text">项目源码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#移动前端"><span class="toc-number">6.1.</span> <span class="toc-text">移动前端</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#联系方式"><span class="toc-number">7.</span> <span class="toc-text">联系方式</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+			<li><a href="/categories/书签/" title="书签">书签<sup>2</sup></a></li>
+		
+			<li><a href="/categories/接口/" title="接口">接口<sup>1</sup></a></li>
+		
+			<li><a href="/categories/项目/" title="项目">项目<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/Github库/" title="Github库">Github库<sup>1</sup></a></li>
+		
+			<li><a href="/tags/书签/" title="书签">书签<sup>2</sup></a></li>
+		
+			<li><a href="/tags/开源项目/" title="开源项目">开源项目<sup>1</sup></a></li>
+		
+			<li><a href="/tags/开源项目库/" title="开源项目库">开源项目库<sup>1</sup></a></li>
+		
+			<li><a href="/tags/接口/" title="接口">接口<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">归档</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">4</span></li></ul>
+  </div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">标签云</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/Github库/" style="font-size: 10px;">Github库</a> <a href="/tags/书签/" style="font-size: 20px;">书签</a> <a href="/tags/开源项目/" style="font-size: 10px;">开源项目</a> <a href="/tags/开源项目库/" style="font-size: 10px;">开源项目库</a> <a href="/tags/接口/" style="font-size: 10px;">接口</a>
+    </div>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="http://www.jikedaohang.com/index.html" target="_blank" title="极客导航">极客导航</a></li>
+      <li><a href="http://www.importnew.com/" target="_blank" title="专注Java开发">importnew</a></li>
+	  <li><a href="https://github.com/Arisono/MarksToAndroid" target="_blank" title="我的书签">我的书签</a></li>
+	  
+	  <li><a href="http://www.trinea.cn/" target="_blank" title="trinea 专注Android开发">Trinea</a></li>
+	
+    </ul>
+</div>
+
+
+  <div class="categorieslist">
+<p class="asidetitle">新浪微博</p>
+<iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=5&isTitle=0&noborder=1&isWeibo=1&isFans=0&uid=3370069110&verifier=e89d4fdd&dpc=1"></iframe>
+
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hi ,I&#39;m Arison, This is my personal technology blog, and occasionally write some life summary, experience sharing <br/>
+			有任问题！欢迎给我留言!</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/3370069110" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/Arisono" target="_blank" title="github"></a>
+		
+		
+		
+	</div>
+		<p class="copyright">
+		<span id="busuanzi_container_site_uv">
+           © 2016 -- 2021 Ariono | 您是本站第 <span id="busuanzi_value_site_uv"></span> 位访客
+         </span>
+		<br>
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2016 
+		
+		<a href="http://ariono.github.io" target="_blank" title="Arison">Arison</a>
+		
+        </br>
+		</p>
+		
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"arisono"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+  </body>
+</html>
